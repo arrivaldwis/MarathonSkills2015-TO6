@@ -21,7 +21,8 @@ DataClasses:
 - VolunteerId set Auto Generated Value: True
 
 Form:
-- Import Tabel [Session 1], Import dulu baru sesuaikan attribute
-- Setiap Koneksi ke Database, Parsing dan File I/O harus di try catch!
-- Format Combo Marathon Name di Previous Race Results "Tahun - Negara"
-- Tampilkan Pesan Jika tidak ada data di semua form load database
+- Import Tabel [Session 1], IMPORT DULU baru sesuaikan attribute
+- Setiap Koneksi ke Database, Parsing dan File I/O harus di TRY CATCH!
+- Format Combo Marathon Name di Previous Race Results "TAHUN - NEGARA"
+- TAMPILKAN PESAN JIKA TIDAK ADA DATA di semua form load database
+- Pake FIRSTORDEFAULT() daripada First()

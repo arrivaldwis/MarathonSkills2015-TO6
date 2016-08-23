@@ -1,0 +1,21 @@
+Revisi
+
+- Auto increment tabel 						(v)
+- Collision Additional (Ko FD)						(v)
+- Pesan Error jika tidak ada data (My Sponsor dan Runner Management)	(v)
+- Fungsi Query Excel yang sama (Untuk Export CSV)			(v)
+- Registration Status Id Error Update (Update Profile)			(v)
+- Tahun at time profile change (Hari Bulan Tahun)				(v)
+- Sponsor Amount Try Catch						(v)
+- Try Catch all data (database) -> tampilkan message box			(v)
+- Tambah MaximumCapacity di Accommodation (ERD)			(v)
+- Marathon name format "Tahun - Negara"				(v)
+- BMI Dibulatkan keatas, sesuai soal					(v)
+- No Charities kalau udah register event keluar charitiesnya		(v)
+- Additional Ka Komala (Employee Name dan PayAmount gk bisa dihilangkan)	( )
+
+NOTES TO REMIND
+
+DataClasses:
+- Delete Relasi Role ke User
+- VolunteerId set Auto Generated Value: True

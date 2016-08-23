@@ -151,7 +151,7 @@ namespace MarathonSkills2015_TO6.User_Control
                 pictureBox1.ImageLocation = Environment.CurrentDirectory + "/Resources/" + speed.Image;
                 string[] splitSpeed = speed.Speed1.Split('k');
                 double jam = 42 / double.Parse(splitSpeed[0]);
-                double menit = (42 % double.Parse(splitSpeed[0])) * 60;
+                //double menit = (42 % double.Parse(splitSpeed[0])) * 60;
 
                 label1.Text = name;
                 label3.Text = "The top speed of a " + speed.Name + " is " + speed.Speed1 + ". It would take " + jam.ToString("F2") + " hour(s) to complete a 42km marathon.";

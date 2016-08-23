@@ -42,9 +42,8 @@ namespace MarathonSkills2015_TO6.User_Control
 
             var getRank = data.RegistrationEvents.Where(x => x.Registration.RegistrationId.Equals(getRegId)).OrderBy(x => x.RaceTime);
 
-            int eventYear = DateTime.Parse("2015-09-05 06:00").Year;
-            int runnerYear = getRunner.DateOfBirth.Value.Year;
-            int now = eventYear - runnerYear;
+            double date = (DateTime.Parse("2015-09-05 06:00") - getRunner.DateOfBirth.Value).TotalDays;
+            double now = Math.Round(date / 365);
 
             if (now > 9 && now < 18)
             {

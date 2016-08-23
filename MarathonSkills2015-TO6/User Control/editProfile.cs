@@ -89,11 +89,58 @@ namespace MarathonSkills2015_TO6.User_Control
                     string email = new MailAddress(lblEmail.Text).Address;
                     if (email.IndexOfAny(".".ToCharArray()) != -1)
                     {
-                        if (txtPassword.Text != "" && txtPasswordAgain.Text != "")
+                        if (!email.Contains("..") || email.Contains(".@") || email.Contains("@.") || email.Contains("._."))
                         {
-                            if (txtPassword.Text.Length > 5 && txtPassword.Text.Any(c => char.IsUpper(c)) && txtPassword.Text.Any(c => char.IsDigit(c)) && txtPassword.Text.IndexOfAny("!@#$%^*".ToCharArray()) != -1)
+                            if (!email.EndsWith("."))
                             {
-                                if (txtPassword.Text == txtPasswordAgain.Text)
+                                if (txtPassword.Text != "" && txtPasswordAgain.Text != "")
+                                {
+                                    if (txtPassword.Text.Length > 5 && txtPassword.Text.Any(c => char.IsUpper(c)) && txtPassword.Text.Any(c => char.IsDigit(c)) && txtPassword.Text.IndexOfAny("!@#$%^*".ToCharArray()) != -1)
+                                    {
+                                        if (txtPassword.Text == txtPasswordAgain.Text)
+                                        {
+                                            double calc = (DateTime.Now - DateTime.Parse(dtDOB.Value.ToString())).TotalDays;
+
+                                            if (Math.Round(calc / 365) >= 10)
+                                            {
+                                                var u = db.Users.Where(x => x.Email.Equals(lblEmail.Text)).First();
+                                                u.FirstName = txtFirstname.Text;
+                                                u.LastName = txtLastname.Text;
+                                                u.Password = txtPassword.Text;
+                                                u.RoleId = 'R';
+                                                db.SubmitChanges();
+
+                                                var r = db.Runners.Where(x => x.Email.Equals(lblEmail.Text)).First();
+                                                r.Gender = cbGender.Text;
+                                                r.DateOfBirth = dtDOB.Value;
+                                                r.CountryCode = db.Countries.Where(x => x.CountryName.Equals(cbCountry.Text)).Select(x => x.CountryCode).First().ToString();
+                                                db.SubmitChanges();
+
+                                                if (this.menu == "1")
+                                                {
+                                                    var ra = db.Registrations.Where(x => x.RegistrationId.Equals(db.Registrations.Where(a => a.RunnerId.Equals(db.Runners.Where(b => b.Email.Equals(lblEmail.Text)).Select(c => c.RunnerId).First())).Select(d => d.RegistrationId).First())).First();
+                                                    ra.RegistrationStatusId = db.RegistrationStatus.Where(x => x.RegistrationStatus1.Equals(cbRegStatus.Text)).Select(x => x.RegistrationStatusId).First();
+                                                    db.SubmitChanges();
+                                                }
+
+                                                MessageBox.Show("Runner Registration updated!");
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("at least 10 years!");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Password not match!");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Password not meet requirement!");
+                                    }
+                                }
+                                else
                                 {
                                     double calc = (DateTime.Now - DateTime.Parse(dtDOB.Value.ToString())).TotalDays;
 
@@ -102,7 +149,6 @@ namespace MarathonSkills2015_TO6.User_Control
                                         var u = db.Users.Where(x => x.Email.Equals(lblEmail.Text)).First();
                                         u.FirstName = txtFirstname.Text;
                                         u.LastName = txtLastname.Text;
-                                        u.Password = txtPassword.Text;
                                         u.RoleId = 'R';
                                         db.SubmitChanges();
 
@@ -126,47 +172,15 @@ namespace MarathonSkills2015_TO6.User_Control
                                         MessageBox.Show("at least 10 years!");
                                     }
                                 }
-                                else
-                                {
-                                    MessageBox.Show("Password not match!");
-                                }
                             }
                             else
                             {
-                                MessageBox.Show("Password not meet requirement!");
+                                MessageBox.Show("Email not valid!");
                             }
                         }
                         else
                         {
-                            double calc = (DateTime.Now - DateTime.Parse(dtDOB.Value.ToString())).TotalDays;
-
-                            if (Math.Round(calc / 365) >= 10)
-                            {
-                                var u = db.Users.Where(x => x.Email.Equals(lblEmail.Text)).First();
-                                u.FirstName = txtFirstname.Text;
-                                u.LastName = txtLastname.Text;
-                                u.RoleId = 'R';
-                                db.SubmitChanges();
-
-                                var r = db.Runners.Where(x => x.Email.Equals(lblEmail.Text)).First();
-                                r.Gender = cbGender.Text;
-                                r.DateOfBirth = dtDOB.Value;
-                                r.CountryCode = db.Countries.Where(x => x.CountryName.Equals(cbCountry.Text)).Select(x => x.CountryCode).First().ToString();
-                                db.SubmitChanges();
-
-                                if (this.menu == "1")
-                                {
-                                    var ra = db.Registrations.Where(x => x.RegistrationId.Equals(db.Registrations.Where(a => a.RunnerId.Equals(db.Runners.Where(b => b.Email.Equals(lblEmail.Text)).Select(c => c.RunnerId).First())).Select(d => d.RegistrationId).First())).First();
-                                    ra.RegistrationStatusId = db.RegistrationStatus.Where(x => x.RegistrationStatus1.Equals(cbRegStatus.Text)).Select(x => x.RegistrationStatusId).First();
-                                    db.SubmitChanges();
-                                }
-
-                                MessageBox.Show("Runner Registration updated!");
-                            }
-                            else
-                            {
-                                MessageBox.Show("at least 10 years!");
-                            }
+                            MessageBox.Show("Email not valid!");
                         }
                     }
                     else

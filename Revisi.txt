@@ -19,3 +19,9 @@ NOTES TO REMIND
 DataClasses:
 - Delete Relasi Role ke User
 - VolunteerId set Auto Generated Value: True
+
+Form:
+- Import Tabel [Session 1], Import dulu baru sesuaikan attribute
+- Setiap Koneksi ke Database, Parsing dan File I/O harus di try catch!
+- Format Combo Marathon Name di Previous Race Results "Tahun - Negara"
+- Tampilkan Pesan Jika tidak ada data di semua form load database

@@ -73,10 +73,10 @@ namespace MarathonSkills2015_TO6.User_Control
                                 x.RegistrationEvents.Where(z => z.Event.Marathon.MarathonName.Equals("Marathon Skills 2015")).Count() > 0).Select(
                             x => new
                             {
-                                x.Runner.User.FirstName,
-                                x.Runner.User.LastName,
-                                x.Runner.User.Email,
-                                x.RegistrationStatus.RegistrationStatus1
+                                FirstName = x.Runner.User.FirstName,
+                                LastName = x.Runner.User.LastName,
+                                Email = x.Runner.User.Email,
+                                Status = x.RegistrationStatus.RegistrationStatus1
                             });
 
             if (cbStatus.SelectedIndex > 0)
@@ -87,7 +87,7 @@ namespace MarathonSkills2015_TO6.User_Control
 
             if (cbStatus.SelectedIndex > 0)
             {
-                var user = users.Where(x => x.RegistrationStatus1.Equals(cbStatus.Text));
+                var user = users.Where(x => x.Status.Equals(cbStatus.Text));
 
                 if (user.Count() <= 0)
                 {
@@ -111,7 +111,7 @@ namespace MarathonSkills2015_TO6.User_Control
                 }
                 else if (cbSort.SelectedIndex == 3)
                 {
-                    dataGridView1.DataSource = user.OrderBy(x => x.RegistrationStatus1);
+                    dataGridView1.DataSource = user.OrderBy(x => x.Status);
                     runners = runners.OrderBy(x => x.RegistrationStatus.RegistrationStatus1).ToList();
                 }
 
@@ -143,7 +143,7 @@ namespace MarathonSkills2015_TO6.User_Control
                 }
                 else if (cbSort.SelectedIndex == 3)
                 {
-                    dataGridView1.DataSource = user.OrderBy(x => x.RegistrationStatus1);
+                    dataGridView1.DataSource = user.OrderBy(x => x.Status);
                     runners = runners.OrderBy(x => x.RegistrationStatus.RegistrationStatus1).ToList();
                 }
 

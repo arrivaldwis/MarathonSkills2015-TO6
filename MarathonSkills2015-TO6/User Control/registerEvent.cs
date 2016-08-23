@@ -18,6 +18,7 @@ namespace MarathonSkills2015_TO6.User_Control
         string runnerId;
         char kitOption = 'A';
         string eventSel = "";
+        int checkeds = 0;
 
         public void setParent(ICallback parent)
         {
@@ -59,7 +60,6 @@ namespace MarathonSkills2015_TO6.User_Control
 
         private void insertData()
         {
-            int checkeds = 0;
 
             Registration r = new Registration();
             r.RunnerId = int.Parse(this.runnerId);
@@ -98,16 +98,17 @@ namespace MarathonSkills2015_TO6.User_Control
             {
                 if (checkBox1.Checked == true)
                 {
+                    checkBox1.CheckState = CheckState.Unchecked;
                     insertEvent(r, "15_5FM");
                 }
-
-                if (checkBox2.Checked == true)
+                else if (checkBox2.Checked == true)
                 {
+                    checkBox2.CheckState = CheckState.Unchecked;
                     insertEvent(r, "15_5HM");
                 }
-
-                if (checkBox3.Checked == true)
+                else if (checkBox3.Checked == true)
                 {
+                    checkBox3.CheckState = CheckState.Unchecked;
                     insertEvent(r, "15_5FR");
                 }
             }
@@ -210,6 +211,7 @@ namespace MarathonSkills2015_TO6.User_Control
             {
                 if (checkBox1.CheckState == CheckState.Unchecked && checkBox2.CheckState == CheckState.Unchecked && checkBox3.CheckState == CheckState.Unchecked)
                 {
+                    checkeds = 0;
                     MessageBox.Show("Please choose at least one event!");
                 }
                 else
@@ -219,6 +221,7 @@ namespace MarathonSkills2015_TO6.User_Control
             }
             else
             {
+                checkeds = 0;
                 MessageBox.Show("Please choose at least one event!");
             }
         }

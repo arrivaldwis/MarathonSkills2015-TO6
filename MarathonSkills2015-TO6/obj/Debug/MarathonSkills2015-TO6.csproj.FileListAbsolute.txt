@@ -40,3 +40,45 @@ D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkill
 D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.csproj.GenerateResource.Cache
 D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.exe
 D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.pdb
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\bin\Debug\MarathonSkills2015-TO6.exe.config
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.csproj.ResolveComReference.cache
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.exe
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.pdb
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\bin\Debug\MarathonSkills2015-TO6.exe
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\bin\Debug\MarathonSkills2015-TO6.pdb
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.csprojResolveAssemblyReference.cache
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.Additional.add.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.aboutMarathonSkills.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.addEditCharity.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.addUser.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.BMICalculator.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.BMRCalculator.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.certificatePreview.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.checkRunner.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.editProfile.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.editUser.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.findOutMore.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.howLongMarathon.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.importVolunteer.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.interactiveMap.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.listOfCharities.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.loginMenu.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.loginScreen.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.manageCharity.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.manageRunner.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.myRaceResults.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.mySponsorship.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.previousRaceResults.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.registerEvent.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.registerEventConfirmation.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.runnerManagement.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.runnerRegistration.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.sponsorConfirmation.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.sponsorOverview.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.sponsorRunner.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.userManagement.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.volunteerManagement.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.frmDetail.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.Form1.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.Properties.Resources.resources
+D:\ASC 2016\Latihan\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.csproj.GenerateResource.Cache

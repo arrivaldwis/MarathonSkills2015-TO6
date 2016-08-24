@@ -28,3 +28,33 @@ C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\Marath
 C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.mySponsorship.resources
 C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.runnerManagement.resources
 C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.manageRunner.resources
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\bin\Debug\MarathonSkills2015-TO6.exe.config
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.exe
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.pdb
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\bin\Debug\MarathonSkills2015-TO6.exe
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\bin\Debug\MarathonSkills2015-TO6.pdb
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.csprojResolveAssemblyReference.cache
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.aboutMarathonSkills.resources
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.checkRunner.resources
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.editProfile.resources
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.findOutMore.resources
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.howLongMarathon.resources
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.interactiveMap.resources
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.listOfCharities.resources
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.loginMenu.resources
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.loginScreen.resources
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.manageRunner.resources
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.myRaceResults.resources
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.mySponsorship.resources
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.previousRaceResults.resources
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.registerEvent.resources
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.registerEventConfirmation.resources
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.runnerManagement.resources
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.runnerRegistration.resources
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.sponsorshipConfirmation.resources
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.Form2.resources
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.frmDetail.resources
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.Form1.resources
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.Properties.Resources.resources
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.sponsorRunner.resources
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6 - Copy\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.csproj.GenerateResource.Cache

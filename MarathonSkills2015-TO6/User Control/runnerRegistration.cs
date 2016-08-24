@@ -56,25 +56,25 @@ namespace MarathonSkills2015_TO6.User_Control
             {
                 data.Users.InsertOnSubmit(u);
                 data.SubmitChanges();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Sorry, this runner already registered!");
-            }
 
-            Runner r = new Runner();
-            r.Email = txtEmail.Text;
-            r.Gender = cbGender.Text;
-            r.DateOfBirth = dtDOB.Value;
-            r.CountryCode = data.Countries.Where(x => x.CountryName.Equals(cbCountry.Text)).Select(x => x.CountryCode).First();
+                Runner r = new Runner();
+                r.Email = txtEmail.Text;
+                r.Gender = cbGender.Text;
+                r.DateOfBirth = dtDOB.Value;
+                r.CountryCode = data.Countries.Where(x => x.CountryName.Equals(cbCountry.Text)).Select(x => x.CountryCode).First();
 
-            try
-            {
-                data.Runners.InsertOnSubmit(r);
-                data.SubmitChanges();
+                try
+                {
+                    data.Runners.InsertOnSubmit(r);
+                    data.SubmitChanges();
 
-                string runnerId = data.Runners.Where(x => x.Email == txtEmail.Text).Select(x => x.RunnerId).First().ToString();
-                parent.aksi("REGISTEREVENT", runnerId, "R", txtEmail.Text);
+                    string runnerId = data.Runners.Where(x => x.Email == txtEmail.Text).Select(x => x.RunnerId).First().ToString();
+                    parent.aksi("REGISTEREVENT", runnerId, "R", txtEmail.Text);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Sorry, this runner already registered!");
+                }
             }
             catch (Exception ex)
             {
@@ -137,7 +137,7 @@ namespace MarathonSkills2015_TO6.User_Control
                 }
                 catch (FormatException ex)
                 {
-                    MessageBox.Show("Email not valid!");
+                    MessageBox.Show(ex.Message);
                 }
             }
             else

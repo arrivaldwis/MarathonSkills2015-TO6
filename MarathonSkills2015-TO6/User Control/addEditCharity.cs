@@ -68,7 +68,7 @@ namespace MarathonSkills2015_TO6.User_Control
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if (txtName.Text != "" || txtDescriptions.Text != "" || txtFile.Text != "")
+            if (txtName.Text != "" && txtFile.Text != "")
             {
                 if (this.charityName == "")
                 {

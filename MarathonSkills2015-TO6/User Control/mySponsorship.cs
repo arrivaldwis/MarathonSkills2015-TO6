@@ -70,15 +70,6 @@ namespace MarathonSkills2015_TO6.User_Control
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int row = dataGridView1.CurrentRow.Index;
-            string name = dataGridView1[0, row].Value.ToString();
-
-            var charityId = data.Sponsorships.Where(x => x.SponsorName.Equals(name)).Select(x => x.Registration.Charity.CharityId).First();
-            var charityDetail = data.Charities.Where(x => x.CharityId.Equals(charityId)).First();
-
-            pictureBox1.ImageLocation = Environment.CurrentDirectory + "/Resources/" + charityDetail.CharityLogo;
-            label4.Text = charityDetail.CharityName;
-            label3.Text = charityDetail.CharityDescription;
         }
     }
 }

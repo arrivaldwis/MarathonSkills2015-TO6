@@ -50,8 +50,8 @@ namespace MarathonSkills2015_TO6.User_Control
                     string email = new MailAddress(txtEmail.Text).Address;
                     if (email.IndexOfAny(".".ToCharArray()) != -1)
                     {
-                        if (!email.Contains("..") || email.Contains(".@") ||
-                            email.Contains("@.") || email.Contains("._."))
+                        if (!email.Contains("..") || !email.Contains(".@") ||
+                            !email.Contains("@.") || !email.Contains("._."))
                         {
                             if (!email.EndsWith("."))
                             {

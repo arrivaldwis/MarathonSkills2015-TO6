@@ -63,9 +63,15 @@ namespace MarathonSkills2015_TO6.User_Control
             if (getCharity != null)
             {
                 var charity = db.Charities.Where(x=>x.CharityId.Equals(getCharity)).FirstOrDefault();
-                label3.Text = charity.CharityName;
-                pictureBox1.ImageLocation = Environment.CurrentDirectory + "/Resources/" + charity.CharityLogo;
-                label2.Text = charity.CharityDescription;
+                if (charity != null)
+                {
+                    label3.Text = charity.CharityName;
+                    pictureBox1.ImageLocation = Environment.CurrentDirectory + "/Resources/" + charity.CharityLogo;
+                    label2.Text = charity.CharityDescription;
+                } else
+                {
+                    MessageBox.Show("No Sponsorship!");
+                }
             }
         }
     }

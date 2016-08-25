@@ -100,7 +100,14 @@ namespace MarathonSkills2015_TO6.User_Control
                         v.LastName = db[2];
                         v.CountryCode = db[3];
                         v.Gender = db[4] == "M" ? "Male" : "Female";
-                        data.Volunteers.InsertOnSubmit(v);
+                        try
+                        {
+                            data.Volunteers.InsertOnSubmit(v);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
                     }
 
                     data.SubmitChanges();

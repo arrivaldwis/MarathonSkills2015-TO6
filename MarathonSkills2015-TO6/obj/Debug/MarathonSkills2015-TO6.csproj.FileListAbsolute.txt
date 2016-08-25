@@ -82,3 +82,7 @@ D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkill
 D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.exe
 D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.pdb
 D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.csprojResolveAssemblyReference.cache
+C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\bin\Debug\MarathonSkills2015-TO6.exe.config
+C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.csproj.ResolveComReference.cache
+C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.exe
+C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.pdb

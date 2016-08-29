@@ -218,5 +218,20 @@ namespace MarathonSkills2015_TO6.User_Control
         {
             getData("Checkpoint 8", "ck");
         }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            getData("FM", "marathon");
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            getData("HM", "marathon");
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            getData("FR", "marathon");
+        }
     }
 }

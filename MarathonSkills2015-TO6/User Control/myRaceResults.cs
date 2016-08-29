@@ -77,7 +77,7 @@ namespace MarathonSkills2015_TO6.User_Control
                     if (a.RaceTime != null)
                     {
                         int i = 0, j = 0, minAge = 0, maxAge = 0;
-                        string rankCat = "", ovRank = "", ovRank2 = "", ganda = "";
+                        string rankCat = "", rankCat2 = "", ovRank = "", ovRank2 = "", ganda = "";
                         var nows = DateTime.Now;
                         int time = Int32.Parse(a.RaceTime.ToString());
 
@@ -153,17 +153,19 @@ namespace MarathonSkills2015_TO6.User_Control
                                     }
                                 }
 
+                                if (ganda == "")
+                                {
+                                    rankCat = i + "";
+                                }
+                                else
+                                {
+                                    ganda = "";
+                                    rankCat = (i++) + "";
+                                }
+
                                 if (b.Registration.RegistrationId.Equals(getRegId))
                                 {
-                                    if (ganda == "")
-                                    {
-                                        rankCat = i + "";
-                                    }
-                                    else
-                                    {
-                                        ganda = "";
-                                        rankCat = (i++) + "";
-                                    }
+                                    rankCat2 = rankCat;
                                 }
                             }
                         }
@@ -193,17 +195,19 @@ namespace MarathonSkills2015_TO6.User_Control
                                     }
                                 }
 
+                                if (ganda == "")
+                                {
+                                    rankCat = i + "";
+                                }
+                                else
+                                {
+                                    ganda = "";
+                                    rankCat = (i++) + "";
+                                }
+
                                 if (b.Registration.RegistrationId.Equals(getRegId))
                                 {
-                                    if (ganda == "")
-                                    {
-                                        rankCat = i + "";
-                                    }
-                                    else
-                                    {
-                                        ganda = "";
-                                        rankCat = (i++) + "";
-                                    }
+                                    rankCat2 = rankCat;
                                 }
                             }
                         }
@@ -254,17 +258,19 @@ namespace MarathonSkills2015_TO6.User_Control
                                     }
                                 }
 
+                                if (ganda == "")
+                                {
+                                    rankCat = i + "";
+                                }
+                                else
+                                {
+                                    ganda = "";
+                                    rankCat = (i++) + "";
+                                }
+
                                 if (b.Registration.RegistrationId.Equals(getRegId))
                                 {
-                                    if (ganda == "")
-                                    {
-                                        rankCat = i + "";
-                                    }
-                                    else
-                                    {
-                                        ganda = "";
-                                        rankCat = (i++) + "";
-                                    }
+                                    rankCat2 = rankCat;
                                 }
                             }
                         }
@@ -273,7 +279,7 @@ namespace MarathonSkills2015_TO6.User_Control
                         lv.SubItems.Add(a.Event.EventType.EventTypeName);
                         lv.SubItems.Add(timeNew);
                         lv.SubItems.Add("#" + ovRank2);
-                        lv.SubItems.Add("#" + rankCat);
+                        lv.SubItems.Add("#" + rankCat2);
                         listView1.Items.Add(lv);
                     }
                     else

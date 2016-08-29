@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Mail;
+using MarathonSkills2015_TO6.Class;
 
 namespace MarathonSkills2015_TO6.User_Control
 {
@@ -86,58 +87,24 @@ namespace MarathonSkills2015_TO6.User_Control
         {
             if (txtEmail.Text != "" || txtFirstname.Text != "" || txtLastname.Text != "" || txtPassword.Text != "" || txtPasswordAgain.Text != "")
             {
-                try
+                validation v = new validation();
+                String val = v.emailPassVal(txtEmail, txtPassword, txtPasswordAgain);
+                if (val == "sukses")
                 {
-                    string email = new MailAddress(txtEmail.Text).Address;
-                    if (email.IndexOfAny(".".ToCharArray()) != -1)
-                    {
-                        if (!email.Contains("..") || email.Contains(".@") || email.Contains("@.") || email.Contains("._."))
-                        {
-                            if (!email.EndsWith("."))
-                            {
-                                if (txtPassword.Text.Length >= 5 && txtPassword.Text.Any(x => char.IsDigit(x)) && txtPassword.Text.Any(x => char.IsUpper(x) && txtPassword.Text.IndexOfAny("!@#$%^".ToCharArray()) != -1))
-                                {
-                                    if (txtPassword.Text == txtPasswordAgain.Text)
-                                    {
-                                        double time = (DateTime.Parse("2015-09-05 06:00") - dtDOB.Value).TotalDays;
+                    double time = (DateTime.Parse("2015-09-05 06:00") - dtDOB.Value).TotalDays;
 
-                                        if (Math.Round(time / 365) >= 10)
-                                        {
-                                            insertData();
-                                        }
-                                        else
-                                        {
-                                            MessageBox.Show("Runner must at least 10 years!");
-                                        }
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Password not match!");
-                                    }
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Password not meet requirement!");
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show("Email not valid!");
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Email not valid!");
-                        }
+                    if (Math.Round(time / 365) >= 10)
+                    {
+                        insertData();
                     }
                     else
                     {
-                        MessageBox.Show("Email not valid!");
+                        MessageBox.Show("Runner must at least 10 years!");
                     }
                 }
-                catch (FormatException ex)
+                else
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(val);
                 }
             }
             else

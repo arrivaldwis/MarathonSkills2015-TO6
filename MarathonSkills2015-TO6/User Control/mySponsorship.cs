@@ -49,6 +49,11 @@ namespace MarathonSkills2015_TO6.User_Control
                 MessageBox.Show("No Sponsorship for this runner");
             }
 
+            if (regId == null || regId <= 0)
+            {
+                MessageBox.Show("No charity for this runner");
+            }
+
             var sponsorReg = data.Registrations.Where(x => x.RunnerId.Equals(this.runnerId)).FirstOrDefault();
 
             if (sponsorReg != null)

@@ -38,7 +38,7 @@ namespace MarathonSkills2015_TO6.User_Control
         {
             base.Refresh();
             var runner = data.Runners.Where(x => x.Registrations.First().RegistrationId.Equals(regId));
-            var user = runner.First().User;
+            var user = runner.FirstOrDefault().User;
 
             lblEmail.Text = user.Email;
             lblFirstName.Text = user.FirstName;

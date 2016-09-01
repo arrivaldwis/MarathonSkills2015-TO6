@@ -22,7 +22,7 @@ namespace MarathonSkills2015_TO6.Class
                     {
                         if (!email.EndsWith("."))
                         {
-                            if (txtPassword.Text.Length >= 5 && txtPassword.Text.Any(x => char.IsDigit(x)) && txtPassword.Text.Any(x => char.IsUpper(x) && txtPassword.Text.IndexOfAny("!@#$%^".ToCharArray()) != -1))
+                            if (txtPassword.Text.Length >= 5 && txtPassword.Text.Any(x => char.IsDigit(x)) && txtPassword.Text.Any(x => char.IsUpper(x) && txtPassword.Text.IndexOfAny("!@_#$%^".ToCharArray()) != -1))
                             {
                                 if (txtPassword.Text == txtPasswordAgain.Text)
                                 {

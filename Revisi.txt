@@ -15,6 +15,8 @@ Revisi
 - Combo Runner Country tidak keluar					(v)
 - Tahun My Race dan Previous beda					( )
 - Additional Ka Komala (Employee Name dan PayAmount gk bisa dihilangkan)	( )
+- Umur 10 harus presisi							( )
+- Validasi di login jika ada runner baru yang didaftarkan admin		( )
 
 NOTES TO REMIND
 

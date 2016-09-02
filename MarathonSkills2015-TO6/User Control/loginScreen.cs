@@ -30,7 +30,21 @@ namespace MarathonSkills2015_TO6.User_Control
             var login = data.Users.Where(x => x.Email.Equals(txtEmail.Text) && x.Password.Equals(txtPassword.Text) && x.RoleId.Equals(role)).FirstOrDefault();
             if (login != null)
             {
-                parent.aksi("LOGINMENU", txtEmail.Text, role.ToString(), "");
+                if (role == 'R')
+                {
+                    try
+                    {
+                        var datas = data.Runners.Where(x => x.Email.Equals(txtEmail.Text)).Select(x => x.RunnerId).First().ToString();
+                        parent.aksi("LOGINMENU", txtEmail.Text, role.ToString(), "");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Sorry, the user not registered in marathon");
+                    }
+                } else
+                {
+                    parent.aksi("LOGINMENU", txtEmail.Text, role.ToString(), "");
+                }
             }
             else
             {

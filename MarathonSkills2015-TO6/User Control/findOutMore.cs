@@ -47,7 +47,7 @@ namespace MarathonSkills2015_TO6.User_Control
 
         private void button7_Click(object sender, EventArgs e)
         {
-            add a = new add();
+            addRunnersReport a = new addRunnersReport();
             a.ShowDialog();
         }
 

@@ -50,11 +50,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Additional\add.cs">
+    <Compile Include="Additional\addRunnerDetailInformation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Additional\add.Designer.cs">
-      <DependentUpon>add.cs</DependentUpon>
+    <Compile Include="Additional\addRunnerDetailInformation.Designer.cs">
+      <DependentUpon>addRunnerDetailInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Additional\addRunnersReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Additional\addRunnersReport.Designer.cs">
+      <DependentUpon>addRunnersReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Additional\addDetailEmployee.cs">
       <SubType>Form</SubType>
@@ -269,8 +275,11 @@
     <Compile Include="User Control\volunteerManagement.Designer.cs">
       <DependentUpon>volunteerManagement.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Additional\add.resx">
-      <DependentUpon>add.cs</DependentUpon>
+    <EmbeddedResource Include="Additional\addRunnerDetailInformation.resx">
+      <DependentUpon>addRunnerDetailInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Additional\addRunnersReport.resx">
+      <DependentUpon>addRunnersReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Additional\addDetailEmployee.resx">
       <DependentUpon>addDetailEmployee.cs</DependentUpon>

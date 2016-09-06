@@ -24,7 +24,7 @@ namespace MarathonSkills2015_TO6.Additional
 
         private void getData()
         {
-            label2.Text = this.position + " - " + this.year;
+            label3.Text = this.position + " - " + this.year;
             var getEmployee = data.Timesheets.Where(
                 x => x.Staff.Position.PositionName.Equals(this.position) &&
                      x.StartDateTime.Value.Year.Equals(this.year) &&

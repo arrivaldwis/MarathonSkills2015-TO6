@@ -86,7 +86,8 @@ D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkill
 D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\bin\Debug\MarathonSkills2015-TO6.exe
 D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\bin\Debug\MarathonSkills2015-TO6.pdb
 D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.csproj.ResolveComReference.cache
-D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.Additional.add.resources
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.Additional.addRunnerDetailInformation.resources
+D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.Additional.addRunnersReport.resources
 D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.Additional.addDetailEmployee.resources
 D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.Additional.addEmployeeReport.resources
 D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.aboutMarathonSkills.resources

@@ -17,7 +17,7 @@ namespace MarathonSkills2015_TO6
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new addEmployeeReport());
+            Application.Run(new addRunnerDetailInformation());
         }
     }
 }

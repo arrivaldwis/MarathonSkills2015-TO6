@@ -74,6 +74,12 @@
     <Compile Include="Additional\addEmployeeReport.Designer.cs">
       <DependentUpon>addEmployeeReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Additional\addVersus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Additional\addVersus.Designer.cs">
+      <DependentUpon>addVersus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Class\validation.cs" />
     <Compile Include="DataClasses1.designer.cs">
       <AutoGen>True</AutoGen>
@@ -286,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Additional\addEmployeeReport.resx">
       <DependentUpon>addEmployeeReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Additional\addVersus.resx">
+      <DependentUpon>addVersus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Control\aboutMarathonSkills.resx">
       <DependentUpon>aboutMarathonSkills.cs</DependentUpon>

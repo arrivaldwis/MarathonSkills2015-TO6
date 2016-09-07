@@ -16,6 +16,7 @@ namespace MarathonSkills2015_TO6.Additional
     {
         DataClasses1DataContext data = new DataClasses1DataContext();
         DataGridViewButtonColumn btnDetail = new DataGridViewButtonColumn();
+        int firstRun = 0;
 
         public addEmployeeReport()
         {
@@ -230,11 +231,18 @@ namespace MarathonSkills2015_TO6.Additional
 
             string path = Application.StartupPath + "\\Employee Report.xls";
 
-            xlWorkBook.SaveAs(path);
-            xlWorkBook.Close(true);
-            xlApp.Quit();
+            try
+            {
+                xlWorkBook.SaveAs(path);
+                xlWorkBook.Close(true);
+                xlApp.Quit();
 
-            Process.Start(Application.StartupPath + "\\Employee Report.xls");
+                Process.Start(Application.StartupPath + "\\Employee Report.xls");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: "+ex.Message);
+            }
         }
     }
 }

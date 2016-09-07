@@ -181,19 +181,6 @@
       <Association Name="Registration_Sponsorship" Member="Registration" ThisKey="RegistrationId" OtherKey="RegistrationId" Type="Registration" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Staff" Member="Staffs">
-    <Type Name="Staff">
-      <Column Name="StaffId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="FirstName" Type="System.String" DbType="VarChar(80) NOT NULL" CanBeNull="false" />
-      <Column Name="LastName" Type="System.String" DbType="VarChar(80) NOT NULL" CanBeNull="false" />
-      <Column Name="DateOfBirth" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="Gender" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="PositionId" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="Comments" Type="System.String" DbType="VarChar(2000)" CanBeNull="true" />
-      <Association Name="Staff_Timesheet" Member="Timesheets" ThisKey="StaffId" OtherKey="StaffId" Type="Timesheet" />
-      <Association Name="Position_Staff" Member="Position" ThisKey="PositionId" OtherKey="PositionId" Type="Position" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Timesheet" Member="Timesheets">
     <Type Name="Timesheet">
       <Column Name="TimesheetId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -212,6 +199,20 @@
       <Column Name="LastName" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
       <Column Name="RoleId" Type="System.Char" DbType="NChar(1) NOT NULL" CanBeNull="false" />
       <Association Name="User_Runner" Member="Runners" ThisKey="Email" OtherKey="Email" Type="Runner" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Staff" Member="Staffs">
+    <Type Name="Staff">
+      <Column Name="StaffId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DateOfBirth" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="PositionId" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="Comments" Type="System.String" DbType="VarChar(2000)" CanBeNull="true" />
+      <Association Name="Staff_Timesheet" Member="Timesheets" ThisKey="StaffId" OtherKey="StaffId" Type="Timesheet" />
+      <Association Name="Position_Staff" Member="Position" ThisKey="PositionId" OtherKey="PositionId" Type="Position" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

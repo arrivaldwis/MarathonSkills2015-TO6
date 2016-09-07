@@ -40,5 +40,45 @@ namespace MarathonSkills2015_TO6.Additional
                 listBox1.DataSource = data.Marathons.Select(x=>x.YearHeld);
             }
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex == 0)
+            {
+                listBox2.DataSource = data.Countries.Select(x => x.CountryName);
+            }
+            else if (comboBox1.SelectedIndex == 1)
+            {
+                listBox2.DataSource = data.Charities.Select(x => x.CharityName);
+            }
+            else if (comboBox1.SelectedIndex == 2)
+            {
+                listBox2.DataSource = data.EventTypes.Select(x => x.EventTypeName);
+            }
+            else if (comboBox1.SelectedIndex == 3)
+            {
+                listBox2.DataSource = data.Genders.Select(x => x.Gender1);
+            }
+            else if (comboBox1.SelectedIndex == 4)
+            {
+                listBox2.DataSource = data.Marathons.Select(x => x.YearHeld);
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox2.SelectedIndex == 0)
+            {
+                listBox3.DataSource = data.EventTypes.Select(x => x.EventTypeName);
+            }
+            else if (comboBox2.SelectedIndex == 1)
+            {
+                listBox3.DataSource = data.Genders.Select(x => x.Gender1);
+            }
+            else if (comboBox2.SelectedIndex == 2)
+            {
+                listBox3.DataSource = data.Marathons.Select(x => x.YearHeld);
+            }
+        }
     }
 }

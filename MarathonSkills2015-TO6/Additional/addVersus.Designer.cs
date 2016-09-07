@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.cbAge1 = new System.Windows.Forms.ComboBox();
@@ -61,7 +61,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(841, 59);
+            this.panel1.Size = new System.Drawing.Size(810, 59);
             this.panel1.TabIndex = 49;
             // 
             // label3
@@ -87,7 +87,7 @@
             "Event Type",
             "Gender",
             "Year"});
-            this.cbAge1.Location = new System.Drawing.Point(104, 73);
+            this.cbAge1.Location = new System.Drawing.Point(97, 74);
             this.cbAge1.Name = "cbAge1";
             this.cbAge1.Size = new System.Drawing.Size(97, 21);
             this.cbAge1.TabIndex = 51;
@@ -98,7 +98,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(20, 74);
+            this.label2.Location = new System.Drawing.Point(13, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 16);
             this.label2.TabIndex = 50;
@@ -116,17 +116,18 @@
             "Event Type",
             "Gender",
             "Year"});
-            this.comboBox1.Location = new System.Drawing.Point(301, 73);
+            this.comboBox1.Location = new System.Drawing.Point(294, 74);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(97, 21);
             this.comboBox1.TabIndex = 53;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(217, 74);
+            this.label1.Location = new System.Drawing.Point(210, 75);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 16);
             this.label1.TabIndex = 52;
@@ -142,21 +143,22 @@
             "Event Type",
             "Gender",
             "Year"});
-            this.comboBox2.Location = new System.Drawing.Point(499, 74);
+            this.comboBox2.Location = new System.Drawing.Point(492, 75);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(97, 21);
             this.comboBox2.TabIndex = 55;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(415, 75);
+            this.label4.Location = new System.Drawing.Point(408, 76);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 16);
+            this.label4.Size = new System.Drawing.Size(85, 16);
             this.label4.TabIndex = 54;
-            this.label4.Text = "Row Filter 3";
+            this.label4.Text = "Column Filter";
             // 
             // comboBox3
             // 
@@ -167,9 +169,9 @@
             this.comboBox3.Items.AddRange(new object[] {
             "Column",
             "Row"});
-            this.comboBox3.Location = new System.Drawing.Point(704, 73);
+            this.comboBox3.Location = new System.Drawing.Point(665, 75);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(97, 21);
+            this.comboBox3.Size = new System.Drawing.Size(129, 21);
             this.comboBox3.TabIndex = 57;
             // 
             // label5
@@ -177,33 +179,39 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(613, 75);
+            this.label5.Location = new System.Drawing.Point(606, 76);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(85, 16);
+            this.label5.Size = new System.Drawing.Size(53, 16);
             this.label5.TabIndex = 56;
-            this.label5.Text = "Column Filter";
+            this.label5.Text = "X Label";
             // 
             // listBox1
             // 
+            this.listBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(23, 100);
+            this.listBox1.Location = new System.Drawing.Point(16, 101);
             this.listBox1.Name = "listBox1";
+            this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.listBox1.Size = new System.Drawing.Size(178, 69);
             this.listBox1.TabIndex = 58;
             // 
             // listBox2
             // 
+            this.listBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(220, 100);
+            this.listBox2.Location = new System.Drawing.Point(213, 101);
             this.listBox2.Name = "listBox2";
+            this.listBox2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.listBox2.Size = new System.Drawing.Size(178, 69);
             this.listBox2.TabIndex = 59;
             // 
             // listBox3
             // 
+            this.listBox3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(418, 100);
+            this.listBox3.Location = new System.Drawing.Point(411, 101);
             this.listBox3.Name = "listBox3";
+            this.listBox3.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.listBox3.Size = new System.Drawing.Size(178, 69);
             this.listBox3.TabIndex = 60;
             // 
@@ -214,7 +222,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button2.Location = new System.Drawing.Point(616, 100);
+            this.button2.Location = new System.Drawing.Point(609, 101);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(93, 69);
             this.button2.TabIndex = 61;
@@ -228,7 +236,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button1.Location = new System.Drawing.Point(715, 100);
+            this.button1.Location = new System.Drawing.Point(708, 101);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(86, 69);
             this.button1.TabIndex = 62;
@@ -237,30 +245,26 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(23, 175);
+            this.dataGridView1.Location = new System.Drawing.Point(16, 176);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(779, 194);
             this.dataGridView1.TabIndex = 63;
             // 
             // chart1
             // 
-            this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart1.Legends.Add(legend4);
-            this.chart1.Location = new System.Drawing.Point(23, 375);
+            this.chart1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(16, 376);
             this.chart1.Name = "chart1";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chart1.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(779, 249);
             this.chart1.TabIndex = 64;
             this.chart1.Text = "chart1";
@@ -269,7 +273,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(839, 636);
+            this.ClientSize = new System.Drawing.Size(808, 636);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);

@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Additional\addMarathonIncome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Additional\addMarathonIncome.Designer.cs">
+      <DependentUpon>addMarathonIncome.cs</DependentUpon>
+    </Compile>
     <Compile Include="Additional\addRunnerDetailInformation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +287,9 @@
     <Compile Include="User Control\volunteerManagement.Designer.cs">
       <DependentUpon>volunteerManagement.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Additional\addMarathonIncome.resx">
+      <DependentUpon>addMarathonIncome.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Additional\addRunnerDetailInformation.resx">
       <DependentUpon>addRunnerDetailInformation.cs</DependentUpon>
     </EmbeddedResource>

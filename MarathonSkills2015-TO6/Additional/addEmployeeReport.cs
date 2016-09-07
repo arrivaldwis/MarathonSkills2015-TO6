@@ -76,7 +76,14 @@ namespace MarathonSkills2015_TO6.Additional
                 label2.Text = textBox1.Text;
                 label2.Visible = true;
 
-                dataGridView1.Columns.Insert(6, btnDetail);
+                try
+                {
+                    dataGridView1.Columns.Insert(6, btnDetail);
+                }
+                catch (Exception ex)
+                {
+
+                }
 
                 int a = 0;
                 foreach (DataGridViewRow row in dataGridView1.Rows)
@@ -157,7 +164,7 @@ namespace MarathonSkills2015_TO6.Additional
 
             xlApp = new Excel.Application();
             xlWorkBook = xlApp.Workbooks.Add();
-            var collection = new Excel.Worksheet[data.Positions.Count()-1];
+            var collection = new Excel.Worksheet[data.Positions.Count()];
 
             int k = 0;
             foreach (var a in data.Positions.Where(x => x.PayPeriod.Equals("Hourly")))
@@ -172,14 +179,17 @@ namespace MarathonSkills2015_TO6.Additional
                     thisWorksheet.Cells[1, 1] = "";
                     thisWorksheet.Range["A3"].Value = "";
 
-                    for (var g = 0; g < dataGridView1.Columns.Count - 1; g++)
+                    for (var g = 0; g < dataGridView1.Columns.Count; g++)
                     {
-                        var yearss = dataGridView1.Columns[g].Name;
+                        if (dataGridView1.Columns[g].Name != "btnDetail")
+                        {
+                            var yearss = dataGridView1.Columns[g].Name;
 
-                        thisWorksheet.Range[alpha + "3"].Value = yearss;
-                        thisWorksheet.get_Range("A3", alpha + "3").HorizontalAlignment = Excel.XlVAlign.xlVAlignCenter;
-                        thisWorksheet.get_Range("A3", alpha + "3").BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThin, (Excel.XlColorIndex)1, ColorTranslator.ToOle(Color.Black), Type.Missing);
-                        alpha++;
+                            thisWorksheet.Range[alpha + "3"].Value = yearss;
+                            thisWorksheet.get_Range("A3", alpha + "3").HorizontalAlignment = Excel.XlVAlign.xlVAlignCenter;
+                            thisWorksheet.get_Range("A3", alpha + "3").BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThin, (Excel.XlColorIndex)1, ColorTranslator.ToOle(Color.Black), Type.Missing);
+                            alpha++;
+                        }
                     }
 
                     thisWorksheet.get_Range("A1", "V2").Merge();
@@ -194,13 +204,16 @@ namespace MarathonSkills2015_TO6.Additional
                     for (int i = 0; i < dataGridView1.RowCount; i++)
                     {
                         alpha = 'A';
-                        for (var g = 0; g < dataGridView1.Columns.Count - 1; g++)
+                        for (var g = 0; g < dataGridView1.Columns.Count; g++)
                         {
-                            thisWorksheet.Cells[b, j] = dataGridView1[g, i].Value.ToString();
-                            thisWorksheet.get_Range("A" + b, alpha + b.ToString()).HorizontalAlignment = Excel.XlVAlign.xlVAlignCenter;
-                            thisWorksheet.get_Range("A" + b, alpha + b.ToString()).BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThin, (Excel.XlColorIndex)1, ColorTranslator.ToOle(Color.Black), Type.Missing);
-                            j++;
-                            alpha++;
+                            if (dataGridView1.Columns[g].Name != "btnDetail")
+                            {
+                                thisWorksheet.Cells[b, j] = dataGridView1[g, i].Value.ToString();
+                                thisWorksheet.get_Range("A" + b, alpha + b.ToString()).HorizontalAlignment = Excel.XlVAlign.xlVAlignCenter;
+                                thisWorksheet.get_Range("A" + b, alpha + b.ToString()).BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThin, (Excel.XlColorIndex)1, ColorTranslator.ToOle(Color.Black), Type.Missing);
+                                j++;
+                                alpha++;
+                            }
                         }
                         b++;
                         j = 1;

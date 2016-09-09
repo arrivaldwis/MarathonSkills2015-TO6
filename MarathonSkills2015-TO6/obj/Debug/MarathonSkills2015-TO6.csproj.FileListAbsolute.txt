@@ -86,17 +86,18 @@ D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkill
 D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.pdb
 D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.csprojResolveAssemblyReference.cache
 D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.Additional.addVersus.resources
-C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\bin\Debug\MarathonSkills2015-TO6.exe.config
-C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\bin\Debug\MarathonSkills2015-TO6.exe
-C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\bin\Debug\MarathonSkills2015-TO6.pdb
 C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.csproj.ResolveComReference.cache
+C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.Additional.addMarathonIncome.resources
 C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.Additional.addRunnerDetailInformation.resources
+C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.Additional.addRunnerSpeed.resources
 C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.Additional.addRunnersReport.resources
 C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.Additional.addDetailEmployee.resources
 C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.Additional.addEmployeeReport.resources
+C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.Additional.addTop5Runner.resources
 C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.Additional.addVersus.resources
 C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.aboutMarathonSkills.resources
 C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.addEditCharity.resources
+C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.additionalMore.resources
 C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.addUser.resources
 C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.BMICalculator.resources
 C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.BMRCalculator.resources
@@ -129,12 +130,10 @@ C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\Marath
 C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.Form1.resources
 C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.Properties.Resources.resources
 C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.csproj.GenerateResource.Cache
-C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.exe
-C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.pdb
-C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.csprojResolveAssemblyReference.cache
-C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.Additional.addMarathonIncome.resources
-C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.User_Control.additionalMore.resources
-C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.Additional.addRunnerSpeed.resources
-C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015_TO6.Additional.addTop5Runner.resources
 C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\RdlCompile.cache
 C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\RdlCompile.compiled
+C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\bin\Debug\MarathonSkills2015-TO6.exe.config
+C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\bin\Debug\MarathonSkills2015-TO6.exe
+C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\bin\Debug\MarathonSkills2015-TO6.pdb
+C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.exe
+C:\Users\ASC\Documents\Visual Studio 2013\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.pdb

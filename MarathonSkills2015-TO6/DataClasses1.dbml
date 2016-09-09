@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="db_marathonskills2015_7" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=db_marathonskills2015_7;Integrated Security=True" SettingsObjectName="MarathonSkills2015_TO6.Properties.Settings" SettingsPropertyName="db_marathonskills2015_7ConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MarathonSkills2015" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=MarathonSkills2015;Integrated Security=True" SettingsObjectName="MarathonSkills2015_TO6.Properties.Settings" SettingsPropertyName="db_marathonskills2015_7ConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Charity" Member="Charities">
     <Type Name="Charity">
       <Column Name="CharityId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -88,18 +88,9 @@
       <Column Name="PositionId" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="PositionName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="PositionDescription" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
-      <Column Name="PayPeriod" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="PayPeriod" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="Payrate" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
       <Association Name="Position_Staff" Member="Staffs" ThisKey="PositionId" OtherKey="PositionId" Type="Staff" />
-    </Type>
-  </Table>
-  <Table Name="dbo.PositionAdd" Member="PositionAdds">
-    <Type Name="PositionAdd">
-      <Column Name="PositionId" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="PositionName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="PositionDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="PayPeriod" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="PayRate" Type="System.Decimal" DbType="Money" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.RaceKitOption" Member="RaceKitOptions">
@@ -183,7 +174,7 @@
   </Table>
   <Table Name="dbo.Staff" Member="Staffs">
     <Type Name="Staff">
-      <Column Name="StaffId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StaffId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="FirstName" Type="System.String" DbType="VarChar(80) NOT NULL" CanBeNull="false" />
       <Column Name="LastName" Type="System.String" DbType="VarChar(80) NOT NULL" CanBeNull="false" />
       <Column Name="Email" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />

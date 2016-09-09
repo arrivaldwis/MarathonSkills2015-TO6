@@ -47,8 +47,7 @@ namespace MarathonSkills2015_TO6.User_Control
 
         private void button7_Click(object sender, EventArgs e)
         {
-            addRunnersReport a = new addRunnersReport();
-            a.ShowDialog();
+            parent.aksi("ADDITIONALMORE", "", "", "");
         }
 
         private void findOutMore_Load(object sender, EventArgs e)

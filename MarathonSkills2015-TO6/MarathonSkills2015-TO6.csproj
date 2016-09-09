@@ -34,10 +34,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Speech" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -62,6 +65,12 @@
     <Compile Include="Additional\addRunnerDetailInformation.Designer.cs">
       <DependentUpon>addRunnerDetailInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Additional\addRunnerSpeed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Additional\addRunnerSpeed.Designer.cs">
+      <DependentUpon>addRunnerSpeed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Additional\addRunnersReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,17 +89,29 @@
     <Compile Include="Additional\addEmployeeReport.Designer.cs">
       <DependentUpon>addEmployeeReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Additional\addTop5Runner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Additional\addTop5Runner.Designer.cs">
+      <DependentUpon>addTop5Runner.cs</DependentUpon>
+    </Compile>
     <Compile Include="Additional\addVersus.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Additional\addVersus.Designer.cs">
       <DependentUpon>addVersus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Additional\Class\RunnerInformationItem.cs" />
     <Compile Include="Class\validation.cs" />
     <Compile Include="DataClasses1.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="Form\frmMain.cs">
       <SubType>Form</SubType>
@@ -118,6 +139,12 @@
     </Compile>
     <Compile Include="User Control\addEditCharity.Designer.cs">
       <DependentUpon>addEditCharity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Control\additionalMore.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Control\additionalMore.Designer.cs">
+      <DependentUpon>additionalMore.cs</DependentUpon>
     </Compile>
     <Compile Include="User Control\addUser.cs">
       <SubType>UserControl</SubType>
@@ -293,6 +320,9 @@
     <EmbeddedResource Include="Additional\addRunnerDetailInformation.resx">
       <DependentUpon>addRunnerDetailInformation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Additional\addRunnerSpeed.resx">
+      <DependentUpon>addRunnerSpeed.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Additional\addRunnersReport.resx">
       <DependentUpon>addRunnersReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -302,14 +332,21 @@
     <EmbeddedResource Include="Additional\addEmployeeReport.resx">
       <DependentUpon>addEmployeeReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Additional\addTop5Runner.resx">
+      <DependentUpon>addTop5Runner.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Additional\addVersus.resx">
       <DependentUpon>addVersus.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\RunnerInformationReport.rdlc" />
     <EmbeddedResource Include="User Control\aboutMarathonSkills.resx">
       <DependentUpon>aboutMarathonSkills.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Control\addEditCharity.resx">
       <DependentUpon>addEditCharity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Control\additionalMore.resx">
+      <DependentUpon>additionalMore.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Control\addUser.resx">
       <DependentUpon>addUser.cs</DependentUpon>
@@ -418,6 +455,17 @@
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

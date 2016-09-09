@@ -74,6 +74,14 @@ namespace MarathonSkills2015_TO6
                 panel3.Controls.Add(s);
                 back = "FINDOUTMOREBACK";
             }
+            else if (obj1 == "ADDITIONALMORE")
+            {
+                additionalMore s = new additionalMore();
+                s.Dock = DockStyle.Fill;
+                s.setParent(this);
+                panel3.Controls.Add(s);
+                back = "FINDOUTMOREBACK";
+            }
             else if (obj1 == "PREVIOUSRACERESULT")
             {
                 previousRaceResults s = new previousRaceResults();

@@ -22,7 +22,7 @@ namespace MarathonSkills2015_TO6
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="db_marathonskills2015_7")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="MarathonSkills2015")]
 	public partial class DataClasses1DataContext : System.Data.Linq.DataContext
 	{
 		
@@ -193,14 +193,6 @@ namespace MarathonSkills2015_TO6
 			get
 			{
 				return this.GetTable<Position>();
-			}
-		}
-		
-		public System.Data.Linq.Table<PositionAdd> PositionAdds
-		{
-			get
-			{
-				return this.GetTable<PositionAdd>();
 			}
 		}
 		
@@ -1890,7 +1882,7 @@ namespace MarathonSkills2015_TO6
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PayPeriod", DbType="VarChar(1000)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PayPeriod", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
 		public string PayPeriod
 		{
 			get
@@ -1973,105 +1965,6 @@ namespace MarathonSkills2015_TO6
 		{
 			this.SendPropertyChanging();
 			entity.Position = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PositionAdd")]
-	public partial class PositionAdd
-	{
-		
-		private string _PositionId;
-		
-		private string _PositionName;
-		
-		private string _PositionDescription;
-		
-		private string _PayPeriod;
-		
-		private System.Nullable<decimal> _PayRate;
-		
-		public PositionAdd()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PositionId", DbType="NChar(10)")]
-		public string PositionId
-		{
-			get
-			{
-				return this._PositionId;
-			}
-			set
-			{
-				if ((this._PositionId != value))
-				{
-					this._PositionId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PositionName", DbType="NVarChar(255)")]
-		public string PositionName
-		{
-			get
-			{
-				return this._PositionName;
-			}
-			set
-			{
-				if ((this._PositionName != value))
-				{
-					this._PositionName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PositionDescription", DbType="NVarChar(255)")]
-		public string PositionDescription
-		{
-			get
-			{
-				return this._PositionDescription;
-			}
-			set
-			{
-				if ((this._PositionDescription != value))
-				{
-					this._PositionDescription = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PayPeriod", DbType="NVarChar(255)")]
-		public string PayPeriod
-		{
-			get
-			{
-				return this._PayPeriod;
-			}
-			set
-			{
-				if ((this._PayPeriod != value))
-				{
-					this._PayPeriod = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PayRate", DbType="Money")]
-		public System.Nullable<decimal> PayRate
-		{
-			get
-			{
-				return this._PayRate;
-			}
-			set
-			{
-				if ((this._PayRate != value))
-				{
-					this._PayRate = value;
-				}
-			}
 		}
 	}
 	
@@ -3705,7 +3598,7 @@ namespace MarathonSkills2015_TO6
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StaffId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StaffId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int StaffId
 		{
 			get

@@ -1,6 +1,8 @@
 Belum Selesai
-- addMarathonIncome: Kalau di type SUM belum bisa handle data sum yang kosong
-- Tampilkan data di tabel baru bisa count dan row marathon name masih belum benar
+- addMarathonIncome: Kalau di type SUM belum bisa handle data sum yang kosong	(done)
+- Tampilkan data di tabel baru bisa count dan row marathon name masih belum benar	(done)
+- All Income belum								(done)
+- addVersus [Ko HV]
 
 Revisi
 

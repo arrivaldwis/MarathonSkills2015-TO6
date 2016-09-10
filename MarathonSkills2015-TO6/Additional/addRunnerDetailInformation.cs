@@ -18,109 +18,62 @@ namespace MarathonSkills2015_TO6.Additional
             InitializeComponent();
         }
 
-        public string IntegerToWords(string rawnumber)
+        public static string NumberToText(int number, bool isUK)
         {
-            int inputNum = 0;
-            int dig1, dig2, dig3, level = 0, lasttwo, threeDigits;
-            string dollars, cents;
-            try
+            if (number == 0) return "Zero";
+            string and = isUK ? "and " : ""; // deals with UK or US numbering
+            if (number == -2147483648)
+                return "Minus Two Billion One Hundred " + and +
+"Forty Seven Million Four Hundred " + and + "Eighty Three Thousand " +
+"Six Hundred " + and + "Forty Eight";
+            int[] num = new int[4];
+            int first = 0;
+            int u, h, t;
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            if (number < 0)
             {
-                string[] Splits = new string[2];
-                Splits = rawnumber.Split('.');   //notice that it is ' and not "
-                inputNum = Convert.ToInt32(Splits[0]);
-
-                //get inputNum as an int
-
-                //dollars = Convert.ToString(inputNum);
-                dollars = "";
-                cents = Splits[1];
-                if (cents.Length == 1)
+                sb.Append("Minus ");
+                number = -number;
+            }
+            string[] words0 = { "", "One ", "Two ", "Three ", "Four ", "Five ", "Six ", "Seven ", "Eight ", "Nine " };
+            string[] words1 = { "Ten ", "Eleven ", "Twelve ", "Thirteen ", "Fourteen ", "Fifteen ", "Sixteen ", "Seventeen ", "Eighteen ", "Nineteen " };
+            string[] words2 = { "Twenty ", "Thirty ", "Forty ", "Fifty ", "Sixty ", "Seventy ", "Eighty ", "Ninety " };
+            string[] words3 = { "Thousand ", "Million ", "Billion " };
+            num[0] = number % 1000;           // units
+            num[1] = number / 1000;
+            num[2] = number / 1000000;
+            num[1] = num[1] - 1000 * num[2];  // thousands
+            num[3] = number / 1000000000;     // billions
+            num[2] = num[2] - 1000 * num[3];  // millions
+            for (int i = 3; i > 0; i--)
+            {
+                if (num[i] != 0)
                 {
-                    cents += "0";   // 12.5 is twelve and 50/100, not twelve and 5/100
+                    first = i;
+                    break;
                 }
             }
-            catch
+            for (int i = first; i >= 0; i--)
             {
-                cents = "00";
-                inputNum = Convert.ToInt32(rawnumber);
-                dollars = "";
-                //dollars = Convert.ToString(rawnumber);
-            }
-
-            string x = "";
-
-            //they had zero for ones and tens but that gave ninety zero for 90
-            string[] ones = { "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
-            string[] tens = { "", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
-            string[] thou = { "", "thousand", "million", "billion", "trillion", "quadrillion", "quintillion" };
-
-            bool isNegative = false;
-            if (inputNum < 0)
-            {
-                isNegative = true;
-                inputNum *= -1;
-            }
-            if (inputNum == 0)
-            {
-                return "zero and " + cents + "/100";
-            }
-
-            string s = inputNum.ToString();
-
-            //for (int t = 0; t < 5; t++)
-            while (s.Length > 0)
-            {
-                if (s.Length > 0)
+                if (num[i] == 0) continue;
+                u = num[i] % 10;              // ones
+                t = num[i] / 10;
+                h = num[i] / 100;             // hundreds
+                t = t - 10 * h;               // tens
+                if (h > 0) sb.Append(words0[h] + "Hundred ");
+                if (u > 0 || t > 0)
                 {
-                    //Get the three rightmost characters
-                    x = (s.Length < 3) ? s : s.Substring(s.Length - 3, 3);
-
-                    // Separate the three digits
-                    threeDigits = int.Parse(x);
-                    lasttwo = threeDigits % 100;
-                    dig1 = threeDigits / 100;
-                    dig2 = lasttwo / 10;
-                    dig3 = (threeDigits % 10);
-
-
-                    // append a "thousand" where appropriate
-                    if (level > 0 && dig1 + dig2 + dig3 > 0)
-                    {
-                        dollars = thou[level] + " " + dollars;
-                        dollars = dollars.Trim();
-                    }
-
-                    // check that the last two digits is not a zero
-                    if (lasttwo > 0)
-                    {
-                        if (lasttwo < 20)
-                        {
-                            // if less than 20, use "ones" only
-                            dollars = ones[lasttwo] + " " + dollars;
-                        }
-                        else
-                        {
-                            // otherwise, use both "tens" and "ones" array
-                            dollars = tens[dig2] + " " + ones[dig3] + " " + dollars;
-                        }
-                        if (s.Length < 3)
-                        {
-                            if (isNegative) { dollars = "negative " + dollars; }
-                            return dollars + " and " + cents + "/100";
-                        }
-                    }
-
-                    // if a hundreds part is there, translate it
-                    if (dig1 > 0)
-                    {
-                        dollars = ones[dig1] + " hundred " + dollars;
-                        s = (s.Length - 3) > 0 ? s.Substring(0, s.Length - 3) : "";
-                        level++;
-                    }
+                    if (h > 0 || i < first) sb.Append(and);
+                    if (t == 0)
+                        sb.Append(words0[u]);
+                    else if (t == 1)
+                        sb.Append(words1[u]);
+                    else
+                        sb.Append(words2[t - 2] + words0[u]);
                 }
+                if (i != 0) sb.Append(words3[i - 1]);
             }
-            if (isNegative) { dollars = "negative " + dollars; }
-            return dollars + " and " + cents + "/100";
+            return sb.ToString().TrimEnd();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -129,27 +82,25 @@ namespace MarathonSkills2015_TO6.Additional
             {
                 string[] name = textBox1.Text.Split(' ');
 
-                try {
+                try
+                {
                     var getRunner = data.Runners.Where(x => x.User.FirstName.Equals(name[0]) && x.User.LastName.Equals(name[1])).FirstOrDefault();
-
-                    string decimals = "";
 
                     if (getRunner != null)
                     {
                         String cost = String.Format("{0:C}", getRunner.Registrations.Where(x => x.RunnerId.Equals(getRunner.RunnerId)).Select(x => x.Cost).FirstOrDefault());
                         String sponsorTarget = String.Format("{0:C}", getRunner.Registrations.Where(x => x.RunnerId.Equals(getRunner.RunnerId)).Select(x => x.SponsorshipTarget).FirstOrDefault());
-
-                        //String strWords = IntegerToWords(getRunner.Registrations.Where(x => x.RunnerId.Equals(getRunner.RunnerId)).Select(x => x.Cost).FirstOrDefault().ToString());
-                        //String strWords2 = IntegerToWords(getRunner.Registrations.Where(x => x.RunnerId.Equals(getRunner.RunnerId)).Select(x => x.SponsorshipTarget).FirstOrDefault().ToString());
-
-                        label27.Text = "USD" + sponsorTarget;
+                        int costs = Decimal.ToInt32(getRunner.Registrations.Where(x => x.RunnerId.Equals(getRunner.RunnerId)).Select(x => x.Cost).FirstOrDefault());
+                        int sponsors = Decimal.ToInt32(getRunner.Registrations.Where(x => x.RunnerId.Equals(getRunner.RunnerId)).Select(x => x.SponsorshipTarget).FirstOrDefault());
+                        
+                        label27.Text = "USD" + sponsorTarget + " ("+NumberToText(sponsors, true)+" Dollar)";
                         label23.Text = getRunner.Registrations.Where(x => x.RunnerId.Equals(getRunner.RunnerId)).Select(x => x.RaceKitOption.RaceKitOption1).FirstOrDefault();
-                        label22.Text = "USD" + cost;
+                        label22.Text = "USD" + cost + " ("+NumberToText(costs, true)+" Dollar)";
                         label21.Text = String.Format("{0:dd MMMM yyyy}", getRunner.DateOfBirth.Value);
                         label20.Text = getRunner.Country.CountryName;
                         label19.Text = getRunner.Registrations.Where(x => x.RunnerId.Equals(getRunner.RunnerId)).Select(x => String.Format("{0:dd MMMM yyyy}", x.RegistrationDateTime)).FirstOrDefault();
                         label18.Text = getRunner.Registrations.Where(x => x.RunnerId.Equals(getRunner.RunnerId)).Select(x => x.RegistrationStatus.RegistrationStatus1).FirstOrDefault();
-                        label17.Text = "USD$0.00 (Zero Dollar)";
+                        label17.Text = "USD$0.00" + " (" + NumberToText(0, true) + " Dollar)";
                         label16.Text = getRunner.User.FirstName;
                         label15.Text = getRunner.User.LastName;
                         label14.Text = getRunner.Email;
@@ -158,17 +109,17 @@ namespace MarathonSkills2015_TO6.Additional
                         var getSponsorship = data.Sponsorships.Where(x => x.Registration.RunnerId.Equals(getRunner.RunnerId));
 
                         int cellNum = 0;
-                        int rowNum = 0;
 
                         DataTable dt = new DataTable();
                         dt.Columns.Add(new DataColumn("No", typeof(int)));
                         dt.Columns.Add(new DataColumn("Sponsor Name", typeof(string)));
                         dt.Columns.Add(new DataColumn("Amount", typeof(string)));
 
-                        foreach(var a in getSponsorship)
+                        foreach (var a in getSponsorship)
                         {
                             cellNum += 1;
-                            dt.Rows.Add(cellNum, a.SponsorName, String.Format("USD{0:C}", a.Amount));
+                            int amount = Decimal.ToInt32(a.Amount);
+                            dt.Rows.Add(cellNum, a.SponsorName, String.Format("USD{0:C} ({1} Dollar)", a.Amount, NumberToText(amount, true)));
                         }
 
                         dataGridView1.DataSource = dt;
@@ -178,11 +129,13 @@ namespace MarathonSkills2015_TO6.Additional
                     {
                         MessageBox.Show("Runner Data is not Complete, Please Try Again!");
                     }
-                } catch(Exception ex)
+                }
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-            } else
+            }
+            else
             {
                 MessageBox.Show("Please input runner name");
             }

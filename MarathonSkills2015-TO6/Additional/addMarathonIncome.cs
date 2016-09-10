@@ -15,7 +15,6 @@ namespace MarathonSkills2015_TO6.Additional
     {
         DataClasses1DataContext data = new DataClasses1DataContext();
         List<Registration> selectedRegistration = new List<Registration>();
-        List<Sponsorship> selectedSponsorship = new List<Sponsorship>();
         List<short> marathonYears = new List<short>();
         Title tt;
 
@@ -27,7 +26,6 @@ namespace MarathonSkills2015_TO6.Additional
 
         private void addMarathonIncome_Load(object sender, EventArgs e)
         {
-
         }
 
         private void getMarathonYear()
@@ -54,26 +52,11 @@ namespace MarathonSkills2015_TO6.Additional
                 return;
             }
 
-            if (comboBox1.SelectedIndex == 0)
-            {
-                var reg = new List<Registration>();
+            var reg = new List<Registration>();
 
-                reg = data.Registrations.ToList();
+            reg = data.Registrations.ToList();
 
-                selectedRegistration = reg;
-            }
-            else if (comboBox1.SelectedIndex == 1)
-            {
-                var spon = new List<Sponsorship>();
-
-                spon = data.Sponsorships.ToList();
-
-                selectedSponsorship = spon;
-            }
-            else
-            {
-                //All income
-            }
+            selectedRegistration = reg;
         }
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -83,15 +66,214 @@ namespace MarathonSkills2015_TO6.Additional
 
         private void generateTable()
         {
-            int counter = -1;
-            dataGridView1.DataSource = data.Marathons.Select(
-                x => new
+            dataGridView1.Columns.Clear();
+            dataGridView1.Rows.Clear();
+
+            dataGridView1.Columns.Add("marathon", "Marathon Name");
+            if(comboBox4.SelectedIndex == 0)
+            {
+                foreach(var a in data.EventTypes)
                 {
-                    MarathonName = marathonYears[(counter+1)] == x.YearHeld?x.MarathonName:"2015",
-                    FullMarathon = data.Registrations.Where(y => y.RegistrationEvents.Where(z => z.Event.Marathon.YearHeld == x.YearHeld).Count() > 0).Where(y=>y.RegistrationEvents.Where(z=>z.Event.EventType.EventTypeName.Equals("Full Marathon")).Count()>0).Count(),
-                    FunRun = data.Registrations.Where(y => y.RegistrationEvents.Where(z => z.Event.Marathon.YearHeld == x.YearHeld).Count() > 0).Where(y=>y.RegistrationEvents.Where(z=>z.Event.EventType.EventTypeName.Equals("5km Fun Run")).Count()>0).Count(),
-                    HalfMarathon = data.Registrations.Where(y => y.RegistrationEvents.Where(z => z.Event.Marathon.YearHeld == x.YearHeld).Count() > 0).Where(y => y.RegistrationEvents.Where(z => z.Event.EventType.EventTypeName.Equals("Half Marathon")).Count() > 0).Count()
-                });
+                    dataGridView1.Columns.Add(a.EventTypeName, a.EventTypeName);
+                }
+            } else if(comboBox4.SelectedIndex == 1)
+            {
+                foreach (var a in data.Genders)
+                {
+                    dataGridView1.Columns.Add(a.Gender1, a.Gender1);
+                }
+            }
+
+            for(int i=0; i<listBox2.SelectedItems.Count; i++)
+            {
+                var yearss = marathonYears[listBox2.SelectedIndices[i]];
+                DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[i].Clone();
+                row.Cells[0].Value = data.Marathons.Where(x => x.YearHeld == yearss).Select(x => x.MarathonName).FirstOrDefault().ToString();
+                int inc = 1;
+
+                if (comboBox1.SelectedIndex == 0)
+                {
+                    var getData = data.Registrations.Where(x => x.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0);
+                    if (cbMarathonName.SelectedIndex == 0)
+                    {
+                        if (comboBox4.SelectedIndex == 0)
+                        {
+                            foreach (var a in data.EventTypes)
+                            {
+                                var sum = getData.Where(x => x.RegistrationEvents.Where(y => y.Event.EventType.EventTypeName.Equals(a.EventTypeName)).Count() > 0).Select(x => x.Cost);
+                                try
+                                {
+                                    row.Cells[inc].Value = String.Format("{0:C}",sum.Sum(x => x));
+                                }
+                                catch (Exception ex)
+                                {
+                                    row.Cells[inc].Value = 0;
+                                }
+                                inc++;
+                            }
+                        }
+                        else if (comboBox4.SelectedIndex == 1)
+                        {
+                            foreach (var a in data.Genders)
+                            {
+                                var sum = getData.Where(x => x.RegistrationEvents.Where(y => y.Registration.Runner.Gender.Equals(a.Gender1)).Count() > 0).Select(x => x.Cost);
+                                try
+                                {
+                                    row.Cells[inc].Value = String.Format("{0:C}", sum.Sum(x => x));
+                                }
+                                catch (Exception ex)
+                                {
+                                    row.Cells[inc].Value = 0;
+                                }
+                                inc++;
+                            }
+                        }
+                    }
+                    else if (cbMarathonName.SelectedIndex == 1)
+                    {
+                        if (comboBox4.SelectedIndex == 0)
+                        {
+                            foreach (var a in data.EventTypes)
+                            {
+                                row.Cells[inc].Value = getData.Where(x => x.RegistrationEvents.Where(y => y.Event.EventType.EventTypeName.Equals(a.EventTypeName)).Count() > 0).Count();
+                                inc++;
+                            }
+                        }
+                        else if (comboBox4.SelectedIndex == 1)
+                        {
+                            foreach (var a in data.Genders)
+                            {
+                                row.Cells[inc].Value = getData.Where(x => x.RegistrationEvents.Where(y => y.Registration.Runner.Gender.Equals(a.Gender1)).Count() > 0).Count();
+                                inc++;
+                            }
+                        }
+                    }
+                } else if(comboBox1.SelectedIndex == 1)
+                {
+                    var getData = data.Sponsorships.Where(x => x.Registration.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0);
+                    if (cbMarathonName.SelectedIndex == 0)
+                    {
+                        if (comboBox4.SelectedIndex == 0)
+                        {
+                            foreach (var a in data.EventTypes)
+                            {
+                                var sum = getData.Where(x => x.Registration.RegistrationEvents.Where(y => y.Event.EventType.EventTypeName.Equals(a.EventTypeName)).Count() > 0).Select(x => x.Amount);
+                                try
+                                {
+                                    row.Cells[inc].Value = String.Format("{0:C}", sum.Sum(x => x));
+                                }
+                                catch (Exception ex)
+                                {
+                                    row.Cells[inc].Value = 0;
+                                }
+                                inc++;
+                            }
+                        }
+                        else if (comboBox4.SelectedIndex == 1)
+                        {
+                            foreach (var a in data.Genders)
+                            {
+                                var sum = getData.Where(x => x.Registration.RegistrationEvents.Where(y => y.Registration.Runner.Gender.Equals(a.Gender1)).Count() > 0).Select(x => x.Amount);
+                                try
+                                {
+                                    row.Cells[inc].Value = String.Format("{0:C}", sum.Sum(x => x));
+                                }
+                                catch (Exception ex)
+                                {
+                                    row.Cells[inc].Value = 0;
+                                }
+                                inc++;
+                            }
+                        }
+                    }
+                    else if (cbMarathonName.SelectedIndex == 1)
+                    {
+                        if (comboBox4.SelectedIndex == 0)
+                        {
+                            foreach (var a in data.EventTypes)
+                            {
+                                row.Cells[inc].Value = getData.Where(x => x.Registration.RegistrationEvents.Where(y => y.Event.EventType.EventTypeName.Equals(a.EventTypeName)).Count() > 0).Count();
+                                inc++;
+                            }
+                        }
+                        else if (comboBox4.SelectedIndex == 1)
+                        {
+                            foreach (var a in data.Genders)
+                            {
+                                row.Cells[inc].Value = getData.Where(x => x.Registration.RegistrationEvents.Where(y => y.Registration.Runner.Gender.Equals(a.Gender1)).Count() > 0).Count();
+                                inc++;
+                            }
+                        }
+                    }
+                } else
+                {
+                    var getData = data.Sponsorships.Where(x => x.Registration.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0);
+                    var getData2 = data.Registrations.Where(x => x.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0);
+
+                    if (cbMarathonName.SelectedIndex == 0)
+                    {
+                        if (comboBox4.SelectedIndex == 0)
+                        {
+                            foreach (var a in data.EventTypes)
+                            {
+                                var sumReg = getData2.Where(x => x.RegistrationEvents.Where(y => y.Event.EventType.EventTypeName.Equals(a.EventTypeName)).Count() > 0).Select(x => x.Cost);
+                                var sum = getData.Where(x => x.Registration.RegistrationEvents.Where(y => y.Event.EventType.EventTypeName.Equals(a.EventTypeName)).Count() > 0).Select(x => x.Amount);
+                                try
+                                {
+                                    row.Cells[inc].Value = String.Format("{0:C}", (sum.Sum(x => x) + sumReg.Sum(x=>x)));
+                                }
+                                catch (Exception ex)
+                                {
+                                    row.Cells[inc].Value = 0;
+                                }
+                                inc++;
+                            }
+                        }
+                        else if (comboBox4.SelectedIndex == 1)
+                        {
+                            foreach (var a in data.Genders)
+                            {
+                                var sumReg = getData2.Where(x => x.RegistrationEvents.Where(y => y.Registration.Runner.Gender.Equals(a.Gender1)).Count() > 0).Select(x => x.Cost);
+                                var sum = getData.Where(x => x.Registration.RegistrationEvents.Where(y => y.Registration.Runner.Gender.Equals(a.Gender1)).Count() > 0).Select(x => x.Amount);
+                                try
+                                {
+                                    row.Cells[inc].Value = String.Format("{0:C}", (sum.Sum(x => x) + sumReg.Sum(x => x)));
+                                }
+                                catch (Exception ex)
+                                {
+                                    row.Cells[inc].Value = 0;
+                                }
+                                inc++;
+                            }
+                        }
+                    }
+                    else if (cbMarathonName.SelectedIndex == 1)
+                    {
+                        if (comboBox4.SelectedIndex == 0)
+                        {
+                            foreach (var a in data.EventTypes)
+                            {
+                                int sumReg = getData2.Where(x => x.RegistrationEvents.Where(y => y.Event.EventType.EventTypeName.Equals(a.EventTypeName)).Count() > 0).Count();
+                                int sum = getData.Where(x => x.Registration.RegistrationEvents.Where(y => y.Event.EventType.EventTypeName.Equals(a.EventTypeName)).Count() > 0).Count();
+                                row.Cells[inc].Value = sumReg + sum;
+                                inc++;
+                            }
+                        }
+                        else if (comboBox4.SelectedIndex == 1)
+                        {
+                            foreach (var a in data.Genders)
+                            {
+                                int sumReg = getData2.Where(x => x.RegistrationEvents.Where(y => y.Registration.Runner.Gender.Equals(a.Gender1)).Count() > 0).Count();
+                                int sum = getData.Where(x => x.Registration.RegistrationEvents.Where(y => y.Registration.Runner.Gender.Equals(a.Gender1)).Count() > 0).Count();
+                                row.Cells[inc].Value = sumReg + sum;
+                                inc++;
+                            }
+                        }
+                    }
+                }
+
+                dataGridView1.Rows.Add(row);
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -149,8 +331,13 @@ namespace MarathonSkills2015_TO6.Additional
                                 {
                                     if (cbMarathonName.SelectedIndex == 0)
                                     {
-                                        int sum = (int)data.Registrations.Where(x => x.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0).Where(z => z.RegistrationEvents.Where(s => s.Event.EventType.EventTypeName.Equals(eventTypes[i])).Count()>0).Sum(x=>x.Cost);
-                                        chart1.Series[eventTypes[i]].Points.AddXY(b.First().RegistrationEvents.First().Event.Marathon.YearHeld + "", sum);
+                                        var sum = data.Registrations.Where(x => x.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0).Where(z => z.RegistrationEvents.Where(s => s.Event.EventType.EventTypeName.Equals(eventTypes[i])).Count()>0).Select(x=>x.Cost);
+                                        try {
+                                            chart1.Series[eventTypes[i]].Points.AddXY(b.First().RegistrationEvents.First().Event.Marathon.YearHeld + "", sum.Sum(x => x));
+                                        } catch (Exception ex)
+                                        {
+                                            chart1.Series[eventTypes[i]].Points.AddXY(b.First().RegistrationEvents.First().Event.Marathon.YearHeld + "", 0);
+                                        }
                                         chart1.Series[eventTypes[i]].IsValueShownAsLabel = true;
                                     }
                                     else if (cbMarathonName.SelectedIndex == 1)
@@ -163,7 +350,15 @@ namespace MarathonSkills2015_TO6.Additional
                                 {
                                     if (cbMarathonName.SelectedIndex == 0)
                                     {
-                                        chart1.Series[genders[i]].Points.AddXY(b.First().RegistrationEvents.First().Event.Marathon.YearHeld + "", (int)data.Registrations.Where(x => x.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0).Where(z => z.RegistrationEvents.Where(s => s.Registration.Runner.Gender.Equals(genders[i])).Count() > 0).Sum(x => x.Cost));
+                                        var sum = data.Registrations.Where(x => x.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0).Where(z => z.RegistrationEvents.Where(s => s.Registration.Runner.Gender.Equals(genders[i])).Count() > 0).Select(x=>x.Cost);
+                                        try
+                                        {
+                                            chart1.Series[genders[i]].Points.AddXY(b.First().RegistrationEvents.First().Event.Marathon.YearHeld + "", sum.Sum(x => x));
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            chart1.Series[genders[i]].Points.AddXY(b.First().RegistrationEvents.First().Event.Marathon.YearHeld + "", 0);
+                                        }
                                         chart1.Series[genders[i]].IsValueShownAsLabel = true;
                                     }
                                     else if (cbMarathonName.SelectedIndex == 1)
@@ -183,7 +378,15 @@ namespace MarathonSkills2015_TO6.Additional
                                 {
                                     if (cbMarathonName.SelectedIndex == 0)
                                     {
-                                        chart1.Series[eventTypes[i]].Points.AddXY(b.First().RegistrationEvents.First().Event.Marathon.YearHeld + "", (int)data.Sponsorships.Where(x => x.Registration.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0).Where(z => z.Registration.RegistrationEvents.Where(s => s.Event.EventType.EventTypeName.Equals(eventTypes[i])).Count() > 0).Sum(x => x.Amount));
+                                        var sum = data.Sponsorships.Where(x => x.Registration.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0).Where(z => z.Registration.RegistrationEvents.Where(s => s.Event.EventType.EventTypeName.Equals(eventTypes[i])).Count() > 0).Select(x => x.Amount);
+                                        try
+                                        {
+                                            chart1.Series[eventTypes[i]].Points.AddXY(b.First().RegistrationEvents.First().Event.Marathon.YearHeld + "", sum.Sum(x => x));
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            chart1.Series[eventTypes[i]].Points.AddXY(b.First().RegistrationEvents.First().Event.Marathon.YearHeld + "", 0);
+                                        }
                                         chart1.Series[eventTypes[i]].IsValueShownAsLabel = true;
                                     }
                                     else if (cbMarathonName.SelectedIndex == 1)
@@ -196,7 +399,15 @@ namespace MarathonSkills2015_TO6.Additional
                                 {
                                     if (cbMarathonName.SelectedIndex == 0)
                                     {
-                                        chart1.Series[genders[i]].Points.AddXY(b.First().RegistrationEvents.First().Event.Marathon.YearHeld + "", (int)data.Sponsorships.Where(x => x.Registration.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0).Where(z => z.Registration.RegistrationEvents.Where(s => s.Registration.Runner.Gender.Equals(genders[i])).Count() > 0).Sum(x => x.Amount));
+                                        var sum = data.Sponsorships.Where(x => x.Registration.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0).Where(z => z.Registration.RegistrationEvents.Where(s => s.Registration.Runner.Gender.Equals(genders[i])).Count() > 0).Select(x => x.Amount);
+                                        try
+                                        {
+                                            chart1.Series[genders[i]].Points.AddXY(b.First().RegistrationEvents.First().Event.Marathon.YearHeld + "", sum.Sum(x => x));
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            chart1.Series[genders[i]].Points.AddXY(b.First().RegistrationEvents.First().Event.Marathon.YearHeld + "", 0);
+                                        }
                                         chart1.Series[genders[i]].IsValueShownAsLabel = true;
                                     }
                                     else if (cbMarathonName.SelectedIndex == 1)
@@ -210,7 +421,7 @@ namespace MarathonSkills2015_TO6.Additional
                         else
                         {
                             var a = selectedRegistration.Where(x => x.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0).ToList();
-                            var b = selectedRegistration.Where(x => x.RegistrationEvents.Where(y => y.Event.Marathon.MarathonId == yearss).Count() > 0).ToList();
+                            var b = selectedRegistration.Where(x => x.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0).ToList();
 
                             if (a.Count() > 0)
                             {
@@ -220,9 +431,27 @@ namespace MarathonSkills2015_TO6.Additional
                                     {
                                         if (cbMarathonName.SelectedIndex == 0)
                                         {
-                                            chart1.Series[eventTypes[i]].Points.AddXY(a.First().RegistrationEvents.First().Event.Marathon.YearHeld + "", (int)
-                                                (data.Registrations.Where(x => x.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0).Where(z => z.RegistrationEvents.Where(s => s.Event.EventType.EventTypeName.Equals(eventTypes[i])).Count() > 0).Select(x => x.Cost).Sum(x => x)) +
-                                                data.Sponsorships.Where(x => x.Registration.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0).Where(z => z.Registration.RegistrationEvents.Where(s => s.Event.EventType.EventTypeName.Equals(eventTypes[i])).Count() > 0).Select(x => x.Amount).Sum(x => x));
+                                            int sumTot = 0, sumSponTot = 0;
+                                            var sum = data.Registrations.Where(x => x.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0).Where(z => z.RegistrationEvents.Where(s => s.Event.EventType.EventTypeName.Equals(eventTypes[i])).Count() > 0).Select(x => x.Cost);
+                                            var sumSpon = data.Sponsorships.Where(x => x.Registration.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0).Where(z => z.Registration.RegistrationEvents.Where(s => s.Event.EventType.EventTypeName.Equals(eventTypes[i])).Count() > 0).Select(x => x.Amount);
+
+                                            try {
+                                                sumTot = Decimal.ToInt32(sum.Sum(x => x));
+                                            } catch (Exception ex)
+                                            {
+                                                sumTot = 0;
+                                            }
+
+                                            try
+                                            {
+                                                sumSponTot = Decimal.ToInt32(sumSpon.Sum(x => x));
+                                            }
+                                            catch (Exception ex)
+                                            {
+                                                sumSponTot = 0;
+                                            }
+
+                                            chart1.Series[eventTypes[i]].Points.AddXY(a.First().RegistrationEvents.First().Event.Marathon.YearHeld + "", (int) sumTot + sumSponTot);
                                             chart1.Series[eventTypes[i]].IsValueShownAsLabel = true;
                                         }
                                         else if (cbMarathonName.SelectedIndex == 1)
@@ -237,9 +466,29 @@ namespace MarathonSkills2015_TO6.Additional
                                     {
                                         if (cbMarathonName.SelectedIndex == 0)
                                         {
-                                            chart1.Series[genders[i]].Points.AddXY(a.First().RegistrationEvents.First().Event.Marathon.YearHeld + "", (int)
-                                                (data.Registrations.Where(x => x.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0).Where(z => z.RegistrationEvents.Where(s => s.Event.EventType.EventTypeName.Equals(eventTypes[i])).Count() > 0).Select(x => x.Cost).Sum(x => x)) +
-                                                data.Sponsorships.Where(x => x.Registration.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0).Where(z => z.Registration.RegistrationEvents.Where(s => s.Registration.Runner.Gender.Equals(genders[i])).Count() > 0).Select(x => x.Amount).Sum(x => x));
+                                            int sumTot = 0, sumSponTot = 0;
+                                            var sum = data.Registrations.Where(x => x.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0).Where(z => z.RegistrationEvents.Where(s => s.Event.EventType.EventTypeName.Equals(eventTypes[i])).Count() > 0).Select(x => x.Cost);
+                                            var sumSpon = data.Sponsorships.Where(x => x.Registration.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0).Where(z => z.Registration.RegistrationEvents.Where(s => s.Registration.Runner.Gender.Equals(genders[i])).Count() > 0).Select(x => x.Amount);
+
+                                            try
+                                            {
+                                                sumTot = Decimal.ToInt32(sum.Sum(x => x));
+                                            }
+                                            catch (Exception ex)
+                                            {
+                                                sumTot = 0;
+                                            }
+
+                                            try
+                                            {
+                                                sumSponTot = Decimal.ToInt32(sumSpon.Sum(x => x));
+                                            }
+                                            catch (Exception ex)
+                                            {
+                                                sumSponTot = 0;
+                                            }
+
+                                            chart1.Series[genders[i]].Points.AddXY(a.First().RegistrationEvents.First().Event.Marathon.YearHeld + "", (int) sumTot + sumSponTot);
                                             chart1.Series[genders[i]].IsValueShownAsLabel = true;
                                         }
                                         else if (cbMarathonName.SelectedIndex == 1)

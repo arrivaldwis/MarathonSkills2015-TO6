@@ -34,8 +34,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
@@ -89,11 +89,11 @@
     <Compile Include="Additional\addEmployeeReport.Designer.cs">
       <DependentUpon>addEmployeeReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="Additional\addTop5Runner.cs">
+    <Compile Include="Additional\addTopRunner.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Additional\addTop5Runner.Designer.cs">
-      <DependentUpon>addTop5Runner.cs</DependentUpon>
+    <Compile Include="Additional\addTopRunner.Designer.cs">
+      <DependentUpon>addTopRunner.cs</DependentUpon>
     </Compile>
     <Compile Include="Additional\addVersus.cs">
       <SubType>Form</SubType>
@@ -332,8 +332,8 @@
     <EmbeddedResource Include="Additional\addEmployeeReport.resx">
       <DependentUpon>addEmployeeReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Additional\addTop5Runner.resx">
-      <DependentUpon>addTop5Runner.cs</DependentUpon>
+    <EmbeddedResource Include="Additional\addTopRunner.resx">
+      <DependentUpon>addTopRunner.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Additional\addVersus.resx">
       <DependentUpon>addVersus.cs</DependentUpon>

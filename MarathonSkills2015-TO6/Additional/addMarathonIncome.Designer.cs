@@ -36,7 +36,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.button4 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -113,20 +112,6 @@
             this.chart1.Size = new System.Drawing.Size(419, 238);
             this.chart1.TabIndex = 82;
             this.chart1.Text = "chart1";
-            // 
-            // button4
-            // 
-            this.button4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button4.Location = new System.Drawing.Point(622, 243);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(109, 35);
-            this.button4.TabIndex = 81;
-            this.button4.Text = "Export to Excel";
-            this.button4.UseVisualStyleBackColor = false;
             // 
             // label8
             // 
@@ -278,7 +263,6 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.chart1);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.comboBox4);
             this.Controls.Add(this.button3);
@@ -305,7 +289,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Button button3;

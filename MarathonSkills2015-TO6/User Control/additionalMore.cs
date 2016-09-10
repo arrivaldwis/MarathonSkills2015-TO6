@@ -39,7 +39,7 @@ namespace MarathonSkills2015_TO6.User_Control
 
         private void button1_Click(object sender, EventArgs e)
         {
-            addTop5Runner a = new addTop5Runner();
+            addTopRunner a = new addTopRunner();
             a.ShowDialog();
         }
 

@@ -69,7 +69,7 @@ namespace MarathonSkills2015_TO6.Additional
             dataGridView1.Columns.Clear();
             dataGridView1.Rows.Clear();
 
-            dataGridView1.Columns.Add("marathon", "Marathon Name");
+            //dataGridView1.Columns.Add("marathon", "Marathon Name");
             if(comboBox4.SelectedIndex == 0)
             {
                 foreach(var a in data.EventTypes)
@@ -88,8 +88,9 @@ namespace MarathonSkills2015_TO6.Additional
             {
                 var yearss = marathonYears[listBox2.SelectedIndices[i]];
                 DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[i].Clone();
-                row.Cells[0].Value = data.Marathons.Where(x => x.YearHeld == yearss).Select(x => x.MarathonName).FirstOrDefault().ToString();
-                int inc = 1;
+                row.HeaderCell.Value = data.Marathons.Where(x => x.YearHeld == yearss).Select(x => x.MarathonName).FirstOrDefault().ToString();
+                
+                int inc = 0;
 
                 if (comboBox1.SelectedIndex == 0)
                 {
@@ -135,7 +136,7 @@ namespace MarathonSkills2015_TO6.Additional
                         {
                             foreach (var a in data.EventTypes)
                             {
-                                row.Cells[inc].Value = getData.Where(x => x.RegistrationEvents.Where(y => y.Event.EventType.EventTypeName.Equals(a.EventTypeName)).Count() > 0).Count();
+                                row.Cells[inc].Value = String.Format("{0:n0}",getData.Where(x => x.RegistrationEvents.Where(y => y.Event.EventType.EventTypeName.Equals(a.EventTypeName)).Count() > 0).Count());
                                 inc++;
                             }
                         }
@@ -143,7 +144,7 @@ namespace MarathonSkills2015_TO6.Additional
                         {
                             foreach (var a in data.Genders)
                             {
-                                row.Cells[inc].Value = getData.Where(x => x.RegistrationEvents.Where(y => y.Registration.Runner.Gender.Equals(a.Gender1)).Count() > 0).Count();
+                                row.Cells[inc].Value = String.Format("{0:n0}", getData.Where(x => x.RegistrationEvents.Where(y => y.Registration.Runner.Gender.Equals(a.Gender1)).Count() > 0).Count());
                                 inc++;
                             }
                         }
@@ -192,7 +193,7 @@ namespace MarathonSkills2015_TO6.Additional
                         {
                             foreach (var a in data.EventTypes)
                             {
-                                row.Cells[inc].Value = getData.Where(x => x.Registration.RegistrationEvents.Where(y => y.Event.EventType.EventTypeName.Equals(a.EventTypeName)).Count() > 0).Count();
+                                row.Cells[inc].Value = String.Format("{0:n0}", getData.Where(x => x.Registration.RegistrationEvents.Where(y => y.Event.EventType.EventTypeName.Equals(a.EventTypeName)).Count() > 0).Count());
                                 inc++;
                             }
                         }
@@ -200,7 +201,7 @@ namespace MarathonSkills2015_TO6.Additional
                         {
                             foreach (var a in data.Genders)
                             {
-                                row.Cells[inc].Value = getData.Where(x => x.Registration.RegistrationEvents.Where(y => y.Registration.Runner.Gender.Equals(a.Gender1)).Count() > 0).Count();
+                                row.Cells[inc].Value = String.Format("{0:n0}", getData.Where(x => x.Registration.RegistrationEvents.Where(y => y.Registration.Runner.Gender.Equals(a.Gender1)).Count() > 0).Count());
                                 inc++;
                             }
                         }
@@ -255,7 +256,7 @@ namespace MarathonSkills2015_TO6.Additional
                             {
                                 int sumReg = getData2.Where(x => x.RegistrationEvents.Where(y => y.Event.EventType.EventTypeName.Equals(a.EventTypeName)).Count() > 0).Count();
                                 int sum = getData.Where(x => x.Registration.RegistrationEvents.Where(y => y.Event.EventType.EventTypeName.Equals(a.EventTypeName)).Count() > 0).Count();
-                                row.Cells[inc].Value = sumReg + sum;
+                                row.Cells[inc].Value = String.Format("{0:n0}", sumReg + sum);
                                 inc++;
                             }
                         }
@@ -265,7 +266,7 @@ namespace MarathonSkills2015_TO6.Additional
                             {
                                 int sumReg = getData2.Where(x => x.RegistrationEvents.Where(y => y.Registration.Runner.Gender.Equals(a.Gender1)).Count() > 0).Count();
                                 int sum = getData.Where(x => x.Registration.RegistrationEvents.Where(y => y.Registration.Runner.Gender.Equals(a.Gender1)).Count() > 0).Count();
-                                row.Cells[inc].Value = sumReg + sum;
+                                row.Cells[inc].Value = String.Format("{0:n0}", sumReg + sum);
                                 inc++;
                             }
                         }
@@ -274,6 +275,7 @@ namespace MarathonSkills2015_TO6.Additional
 
                 dataGridView1.Rows.Add(row);
             }
+            dataGridView1.AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -338,12 +340,14 @@ namespace MarathonSkills2015_TO6.Additional
                                         {
                                             chart1.Series[eventTypes[i]].Points.AddXY(b.First().RegistrationEvents.First().Event.Marathon.YearHeld + "", 0);
                                         }
-                                        chart1.Series[eventTypes[i]].IsValueShownAsLabel = true;
+                                        chart1.Series[eventTypes[i]].Label = "#PERCENT";
+                                        //chart1.Series[eventTypes[i]].IsValueShownAsLabel = true;
                                     }
                                     else if (cbMarathonName.SelectedIndex == 1)
                                     {
                                         chart1.Series[eventTypes[i]].Points.AddXY(b.First().RegistrationEvents.First().Event.Marathon.YearHeld + "", (int)data.Registrations.Where(x => x.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0).Where(z => z.RegistrationEvents.Where(s => s.Event.EventType.EventTypeName.Equals(eventTypes[i])).Count() > 0).Select(x => x.Cost).Count());
-                                        chart1.Series[eventTypes[i]].IsValueShownAsLabel = true;
+                                        chart1.Series[eventTypes[i]].Label = "#PERCENT";
+                                        //chart1.Series[eventTypes[i]].IsValueShownAsLabel = true;
                                     }
                                 }
                                 else if (comboBox4.SelectedIndex == 1)
@@ -359,12 +363,15 @@ namespace MarathonSkills2015_TO6.Additional
                                         {
                                             chart1.Series[genders[i]].Points.AddXY(b.First().RegistrationEvents.First().Event.Marathon.YearHeld + "", 0);
                                         }
-                                        chart1.Series[genders[i]].IsValueShownAsLabel = true;
+                                        chart1.Series[genders[i]].Label = "#PERCENT";
+                                        //chart1.Series[genders[i]].IsValueShownAsLabel = true;
                                     }
                                     else if (cbMarathonName.SelectedIndex == 1)
                                     {
                                         chart1.Series[genders[i]].Points.AddXY(b.First().RegistrationEvents.First().Event.Marathon.YearHeld + "", (int)data.Registrations.Where(x => x.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0).Where(z => z.RegistrationEvents.Where(s => s.Registration.Runner.Gender.Equals(genders[i])).Count() > 0).Select(x => x.Cost).Count());
-                                        chart1.Series[genders[i]].IsValueShownAsLabel = true;
+
+                                        chart1.Series[genders[i]].Label = "#PERCENT";
+                                        //chart1.Series[genders[i]].IsValueShownAsLabel = true;
                                     }
                                 }
                             }
@@ -387,12 +394,15 @@ namespace MarathonSkills2015_TO6.Additional
                                         {
                                             chart1.Series[eventTypes[i]].Points.AddXY(b.First().RegistrationEvents.First().Event.Marathon.YearHeld + "", 0);
                                         }
-                                        chart1.Series[eventTypes[i]].IsValueShownAsLabel = true;
+                                        chart1.Series[eventTypes[i]].Label = "#PERCENT";
+                                        //chart1.Series[eventTypes[i]].IsValueShownAsLabel = true;
                                     }
                                     else if (cbMarathonName.SelectedIndex == 1)
                                     {
                                         chart1.Series[eventTypes[i]].Points.AddXY(b.First().RegistrationEvents.First().Event.Marathon.YearHeld + "", (int)data.Sponsorships.Where(x => x.Registration.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0).Where(z => z.Registration.RegistrationEvents.Where(s => s.Event.EventType.EventTypeName.Equals(eventTypes[i])).Count() > 0).Select(x => x.Amount).Count());
-                                        chart1.Series[eventTypes[i]].IsValueShownAsLabel = true;
+
+                                        chart1.Series[eventTypes[i]].Label = "#PERCENT";
+                                        //chart1.Series[eventTypes[i]].IsValueShownAsLabel = true;
                                     }
                                 }
                                 else if (comboBox4.SelectedIndex == 1)
@@ -408,12 +418,15 @@ namespace MarathonSkills2015_TO6.Additional
                                         {
                                             chart1.Series[genders[i]].Points.AddXY(b.First().RegistrationEvents.First().Event.Marathon.YearHeld + "", 0);
                                         }
-                                        chart1.Series[genders[i]].IsValueShownAsLabel = true;
+                                        chart1.Series[genders[i]].Label = "#PERCENT";
+                                        //chart1.Series[genders[i]].IsValueShownAsLabel = true;
                                     }
                                     else if (cbMarathonName.SelectedIndex == 1)
                                     {
                                         chart1.Series[genders[i]].Points.AddXY(b.First().RegistrationEvents.First().Event.Marathon.YearHeld + "", (int)data.Sponsorships.Where(x => x.Registration.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0).Where(z => z.Registration.RegistrationEvents.Where(s => s.Registration.Runner.Gender.Equals(genders[i])).Count() > 0).Select(x => x.Amount).Count());
-                                        chart1.Series[genders[i]].IsValueShownAsLabel = true;
+
+                                        chart1.Series[genders[i]].Label = "#PERCENT";
+                                        //chart1.Series[genders[i]].IsValueShownAsLabel = true;
                                     }
                                 }
                             }
@@ -452,14 +465,18 @@ namespace MarathonSkills2015_TO6.Additional
                                             }
 
                                             chart1.Series[eventTypes[i]].Points.AddXY(a.First().RegistrationEvents.First().Event.Marathon.YearHeld + "", (int) sumTot + sumSponTot);
-                                            chart1.Series[eventTypes[i]].IsValueShownAsLabel = true;
+
+                                            chart1.Series[genders[i]].Label = "#PERCENT";
+                                            //chart1.Series[eventTypes[i]].IsValueShownAsLabel = true;
                                         }
                                         else if (cbMarathonName.SelectedIndex == 1)
                                         {
                                             chart1.Series[eventTypes[i]].Points.AddXY(a.First().RegistrationEvents.First().Event.Marathon.YearHeld + "", (int)
                                                 (data.Registrations.Where(x => x.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0).Where(z => z.RegistrationEvents.Where(s => s.Event.EventType.EventTypeName.Equals(eventTypes[i])).Count() > 0).Select(x => x.Cost).Count()) +
                                                 data.Sponsorships.Where(x => x.Registration.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0).Where(z => z.Registration.RegistrationEvents.Where(s => s.Event.EventType.EventTypeName.Equals(eventTypes[i])).Count() > 0).Select(x => x.Amount).Count());
-                                            chart1.Series[eventTypes[i]].IsValueShownAsLabel = true;
+
+                                            chart1.Series[genders[i]].Label = "#PERCENT";
+                                            //chart1.Series[eventTypes[i]].IsValueShownAsLabel = true;
                                         }
                                     }
                                     else
@@ -489,14 +506,18 @@ namespace MarathonSkills2015_TO6.Additional
                                             }
 
                                             chart1.Series[genders[i]].Points.AddXY(a.First().RegistrationEvents.First().Event.Marathon.YearHeld + "", (int) sumTot + sumSponTot);
-                                            chart1.Series[genders[i]].IsValueShownAsLabel = true;
+
+                                            chart1.Series[genders[i]].Label = "#PERCENT";
+                                            //chart1.Series[genders[i]].IsValueShownAsLabel = true;
                                         }
                                         else if (cbMarathonName.SelectedIndex == 1)
                                         {
                                             chart1.Series[genders[i]].Points.AddXY(a.First().RegistrationEvents.First().Event.Marathon.YearHeld + "", (int)
                                                 (data.Registrations.Where(x => x.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0).Where(z => z.RegistrationEvents.Where(s => s.Event.EventType.EventTypeName.Equals(eventTypes[i])).Count() > 0).Select(x => x.Cost).Count()) +
                                                 data.Sponsorships.Where(x => x.Registration.RegistrationEvents.Where(y => y.Event.Marathon.YearHeld == yearss).Count() > 0).Where(z => z.Registration.RegistrationEvents.Where(s => s.Registration.Runner.Gender.Equals(genders[i])).Count() > 0).Select(x => x.Amount).Count());
-                                            chart1.Series[genders[i]].IsValueShownAsLabel = true;
+
+                                            chart1.Series[genders[i]].Label = "#PERCENT";
+                                            //chart1.Series[genders[i]].IsValueShownAsLabel = true;
                                         }
                                     }
                                 }

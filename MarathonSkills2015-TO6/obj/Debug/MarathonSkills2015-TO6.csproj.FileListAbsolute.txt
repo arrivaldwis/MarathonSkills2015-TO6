@@ -154,4 +154,3 @@ D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkill
 D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\RdlCompile.compiled
 D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.exe
 D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.pdb
-D:\Doc. Arrival\Visual Studio 2015\Projects\MarathonSkills2015-TO6\MarathonSkills2015-TO6\obj\Debug\MarathonSkills2015-TO6.csprojResolveAssemblyReference.cache

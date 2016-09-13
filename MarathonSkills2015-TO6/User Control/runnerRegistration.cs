@@ -91,9 +91,10 @@ namespace MarathonSkills2015_TO6.User_Control
                 String val = v.emailPassVal(txtEmail, txtPassword, txtPasswordAgain);
                 if (val == "sukses")
                 {
-                    double time = (DateTime.Parse("2015-09-05 06:00") - dtDOB.Value).TotalDays;
+                    int calcs = DateTime.Now.Year - DateTime.Parse(dtDOB.Value.ToString()).Year;
+                    if (DateTime.Today < dtDOB.Value.AddYears(calcs)) calcs--;
 
-                    if (Math.Round(time / 365) >= 10)
+                    if (calcs >= 10)
                     {
                         insertData();
                     }

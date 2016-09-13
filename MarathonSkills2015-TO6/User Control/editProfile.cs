@@ -99,9 +99,10 @@ namespace MarathonSkills2015_TO6.User_Control
                                     {
                                         if (txtPassword.Text == txtPasswordAgain.Text)
                                         {
-                                            double calc = (DateTime.Now - DateTime.Parse(dtDOB.Value.ToString())).TotalDays;
+                                            int calcs = DateTime.Now.Year - DateTime.Parse(dtDOB.Value.ToString()).Year;
+                                            if (DateTime.Today < dtDOB.Value.AddYears(calcs)) calcs--;
 
-                                            if (Math.Round(calc / 365) >= 10)
+                                            if (calcs >= 10)
                                             {
                                                 var u = db.Users.Where(x => x.Email.Equals(lblEmail.Text)).First();
                                                 u.FirstName = txtFirstname.Text;
@@ -142,9 +143,10 @@ namespace MarathonSkills2015_TO6.User_Control
                                 }
                                 else
                                 {
-                                    double calc = (DateTime.Now - DateTime.Parse(dtDOB.Value.ToString())).TotalDays;
+                                    int calcs = DateTime.Now.Year - DateTime.Parse(dtDOB.Value.ToString()).Year;
+                                    if (DateTime.Today < dtDOB.Value.AddYears(calcs)) calcs--;
 
-                                    if (Math.Round(calc / 365) >= 10)
+                                    if (calcs >= 10)
                                     {
                                         var u = db.Users.Where(x => x.Email.Equals(lblEmail.Text)).First();
                                         u.FirstName = txtFirstname.Text;

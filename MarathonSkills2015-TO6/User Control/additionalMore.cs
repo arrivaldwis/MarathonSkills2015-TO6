@@ -57,12 +57,14 @@ namespace MarathonSkills2015_TO6.User_Control
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            addMarathonIncome a = new addMarathonIncome();
+            a.ShowDialog();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-
+            addVersus a = new addVersus();
+            a.ShowDialog();
         }
     }
 }

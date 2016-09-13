@@ -558,14 +558,14 @@ namespace MarathonSkills2015_TO6.Additional
                     {
                         for (int i = 0; i < eventTypes.Count; i++)
                         {
-                            chart1.Series[i].ChartType = SeriesChartType.Line;
+                            chart1.Series[i].ChartType = SeriesChartType.Bar;
                         }
                     }
                     else
                     {
                         for (int i = 0; i < genders.Count; i++)
                         {
-                            chart1.Series[i].ChartType = SeriesChartType.Line;
+                            chart1.Series[i].ChartType = SeriesChartType.Bar;
                         }
                     }
                 }

@@ -33,13 +33,13 @@
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.cbAge1 = new System.Windows.Forms.ComboBox();
+            this.cbRowFilter1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbRowFilter2 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbColFilter = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cbXLabel = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
@@ -75,23 +75,23 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Versus";
             // 
-            // cbAge1
+            // cbRowFilter1
             // 
-            this.cbAge1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.cbAge1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbAge1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbAge1.FormattingEnabled = true;
-            this.cbAge1.Items.AddRange(new object[] {
+            this.cbRowFilter1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cbRowFilter1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRowFilter1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbRowFilter1.FormattingEnabled = true;
+            this.cbRowFilter1.Items.AddRange(new object[] {
             "Country",
             "Charity",
             "Event Type",
             "Gender",
             "Year"});
-            this.cbAge1.Location = new System.Drawing.Point(97, 74);
-            this.cbAge1.Name = "cbAge1";
-            this.cbAge1.Size = new System.Drawing.Size(97, 21);
-            this.cbAge1.TabIndex = 51;
-            this.cbAge1.SelectedIndexChanged += new System.EventHandler(this.cbAge1_SelectedIndexChanged);
+            this.cbRowFilter1.Location = new System.Drawing.Point(97, 74);
+            this.cbRowFilter1.Name = "cbRowFilter1";
+            this.cbRowFilter1.Size = new System.Drawing.Size(97, 21);
+            this.cbRowFilter1.TabIndex = 51;
+            this.cbRowFilter1.SelectedIndexChanged += new System.EventHandler(this.cbAge1_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -104,23 +104,24 @@
             this.label2.TabIndex = 50;
             this.label2.Text = "Row Filter 1";
             // 
-            // comboBox1
+            // cbRowFilter2
             // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbRowFilter2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cbRowFilter2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRowFilter2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbRowFilter2.FormattingEnabled = true;
+            this.cbRowFilter2.Items.AddRange(new object[] {
+            "Select",
             "Country",
             "Charity",
             "Event Type",
             "Gender",
             "Year"});
-            this.comboBox1.Location = new System.Drawing.Point(294, 74);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(97, 21);
-            this.comboBox1.TabIndex = 53;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cbRowFilter2.Location = new System.Drawing.Point(294, 74);
+            this.cbRowFilter2.Name = "cbRowFilter2";
+            this.cbRowFilter2.Size = new System.Drawing.Size(97, 21);
+            this.cbRowFilter2.TabIndex = 53;
+            this.cbRowFilter2.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -133,21 +134,22 @@
             this.label1.TabIndex = 52;
             this.label1.Text = "Row Filter 2";
             // 
-            // comboBox2
+            // cbColFilter
             // 
-            this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cbColFilter.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cbColFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbColFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbColFilter.FormattingEnabled = true;
+            this.cbColFilter.Items.AddRange(new object[] {
+            "Select",
             "Event Type",
             "Gender",
             "Year"});
-            this.comboBox2.Location = new System.Drawing.Point(492, 75);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(97, 21);
-            this.comboBox2.TabIndex = 55;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.cbColFilter.Location = new System.Drawing.Point(492, 75);
+            this.cbColFilter.Name = "cbColFilter";
+            this.cbColFilter.Size = new System.Drawing.Size(97, 21);
+            this.cbColFilter.TabIndex = 55;
+            this.cbColFilter.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -160,19 +162,19 @@
             this.label4.TabIndex = 54;
             this.label4.Text = "Column Filter";
             // 
-            // comboBox3
+            // cbXLabel
             // 
-            this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.cbXLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cbXLabel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbXLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbXLabel.FormattingEnabled = true;
+            this.cbXLabel.Items.AddRange(new object[] {
             "Column",
             "Row"});
-            this.comboBox3.Location = new System.Drawing.Point(665, 75);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(129, 21);
-            this.comboBox3.TabIndex = 57;
+            this.cbXLabel.Location = new System.Drawing.Point(665, 75);
+            this.cbXLabel.Name = "cbXLabel";
+            this.cbXLabel.Size = new System.Drawing.Size(129, 21);
+            this.cbXLabel.TabIndex = 57;
             // 
             // label5
             // 
@@ -246,6 +248,7 @@
             this.button1.TabIndex = 62;
             this.button1.Text = "Export";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
             // 
@@ -285,18 +288,19 @@
             this.Controls.Add(this.listBox3);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.cbXLabel);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cbColFilter);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbRowFilter2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.cbAge1);
+            this.Controls.Add(this.cbRowFilter1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Name = "addVersus";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Versus Form";
+            this.Load += new System.EventHandler(this.addVersus_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -310,13 +314,13 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cbAge1;
+        private System.Windows.Forms.ComboBox cbRowFilter1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbRowFilter2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbColFilter;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cbXLabel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.ListBox listBox2;

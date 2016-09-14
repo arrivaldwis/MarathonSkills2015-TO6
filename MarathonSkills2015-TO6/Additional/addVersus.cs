@@ -337,6 +337,7 @@ namespace MarathonSkills2015_TO6.Additional
                 {
                     var series = chart1.Series.Add(item.ToString());
                     series.ToolTip = "#SERIESNAME - #VALX : #VAL";
+                    series.Label = "#VAL";
                     foreach (var resultItem in results)
                     {
                         foreach (var key in resultItem.Data.Keys)
@@ -465,7 +466,7 @@ namespace MarathonSkills2015_TO6.Additional
             }
 
             Excel.ChartObjects xlCharts = (Excel.ChartObjects)xlWorkSheet.ChartObjects(Type.Missing);
-            Excel.ChartObject myChart = (Excel.ChartObject)xlCharts.Add(0, (dataGridView1.RowCount + 2) * 13.3, 600, 250);
+            Excel.ChartObject myChart = (Excel.ChartObject)xlCharts.Add(0, (dataGridView1.RowCount + 2) * 13.3, 400, 250);
             Excel.Chart chartPage = myChart.Chart;
             myChart.Select();
 
@@ -505,7 +506,7 @@ namespace MarathonSkills2015_TO6.Additional
             }
             else
             {
-                foreach (var item in listBox3.Items)
+                foreach (var item in listBox3.SelectedItems)
                 {
                     Excel.Series newSeries = seriesCols.NewSeries();
                     newSeries.Name = item.ToString();
@@ -516,13 +517,20 @@ namespace MarathonSkills2015_TO6.Additional
                     {
                         if (rowFilter2 != -1)
                         {
-                            xValues.Add(dgRow.Cells[0].Value == null ? string.Empty : dgRow.Cells[0].Value.ToString() + " - " + dgRow.Cells[1].Value == null ? string.Empty : dgRow.Cells[1].Value.ToString());
-                            values.Add(int.Parse(dgRow.Cells[2 + listBox3.Items.IndexOf(item)].Value == null ? "0" : dgRow.Cells[2 + listBox3.Items.IndexOf(item)].Value.ToString()));
+                            try
+                            {
+                                xValues.Add(dgRow.Cells[0].Value == null ? string.Empty : dgRow.Cells[0].Value.ToString() + " - " + dgRow.Cells[1].Value == null ? string.Empty : dgRow.Cells[1].Value.ToString());
+                                values.Add(int.Parse(dgRow.Cells[2 + listBox3.SelectedItems.IndexOf(item)].Value == null ? "0" : dgRow.Cells[2 + listBox3.SelectedItems.IndexOf(item)].Value.ToString()));
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message);
+                            }
                         }
                         else
                         {
                             xValues.Add(dgRow.Cells[0].Value == null ? string.Empty : dgRow.Cells[0].Value.ToString());
-                            values.Add(int.Parse(dgRow.Cells[1 + listBox3.Items.IndexOf(item)].Value == null ? "0" : dgRow.Cells[1 + listBox3.Items.IndexOf(item)].Value.ToString()));
+                            values.Add(int.Parse(dgRow.Cells[1 + listBox3.SelectedItems.IndexOf(item)].Value == null ? "0" : dgRow.Cells[1 + listBox3.SelectedItems.IndexOf(item)].Value.ToString()));
                         }
                     }
                     newSeries.ApplyDataLabels(Excel.XlDataLabelsType.xlDataLabelsShowValue, false, true, false, false, false, true, false);

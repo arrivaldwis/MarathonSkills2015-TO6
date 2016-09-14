@@ -84,50 +84,60 @@ namespace MarathonSkills2015_TO6.Additional
 
                 try
                 {
-                    var getRunner = data.Runners.Where(x => x.User.FirstName.Equals(name[0]) && x.User.LastName.Equals(name[1])).FirstOrDefault();
+                    var getRunner = data.Registrations.Where(
+                        x => x.Runner.User.FirstName.ToLower().Equals(name[0].ToLower()) &&
+                             x.Runner.User.LastName.ToLower().Equals(name[1].ToLower()));
 
-                    if (getRunner != null)
+                    if (getRunner.Count() > 1)
                     {
-                        String cost = String.Format("{0:C}", getRunner.Registrations.Where(x => x.RunnerId.Equals(getRunner.RunnerId)).Select(x => x.Cost).FirstOrDefault());
-                        String sponsorTarget = String.Format("{0:C}", getRunner.Registrations.Where(x => x.RunnerId.Equals(getRunner.RunnerId)).Select(x => x.SponsorshipTarget).FirstOrDefault());
-                        int costs = Decimal.ToInt32(getRunner.Registrations.Where(x => x.RunnerId.Equals(getRunner.RunnerId)).Select(x => x.Cost).FirstOrDefault());
-                        int sponsors = Decimal.ToInt32(getRunner.Registrations.Where(x => x.RunnerId.Equals(getRunner.RunnerId)).Select(x => x.SponsorshipTarget).FirstOrDefault());
-                        
-                        label27.Text = "USD" + sponsorTarget + " ("+NumberToText(sponsors, true)+" Dollar)";
-                        label23.Text = getRunner.Registrations.Where(x => x.RunnerId.Equals(getRunner.RunnerId)).Select(x => x.RaceKitOption.RaceKitOption1).FirstOrDefault();
-                        label22.Text = "USD" + cost + " ("+NumberToText(costs, true)+" Dollar)";
-                        label21.Text = String.Format("{0:dd MMMM yyyy}", getRunner.DateOfBirth.Value);
-                        label20.Text = getRunner.Country.CountryName;
-                        label19.Text = getRunner.Registrations.Where(x => x.RunnerId.Equals(getRunner.RunnerId)).Select(x => String.Format("{0:dd MMMM yyyy}", x.RegistrationDateTime)).FirstOrDefault();
-                        label18.Text = getRunner.Registrations.Where(x => x.RunnerId.Equals(getRunner.RunnerId)).Select(x => x.RegistrationStatus.RegistrationStatus1).FirstOrDefault();
-                        label17.Text = "USD$0.00" + " (" + NumberToText(0, true) + " Dollar)";
-                        label16.Text = getRunner.User.FirstName;
-                        label15.Text = getRunner.User.LastName;
-                        label14.Text = getRunner.Email;
-                        label13.Text = getRunner.Gender;
-
-                        var getSponsorship = data.Sponsorships.Where(x => x.Registration.RunnerId.Equals(getRunner.RunnerId));
-
-                        int cellNum = 0;
-
-                        DataTable dt = new DataTable();
-                        dt.Columns.Add(new DataColumn("No", typeof(int)));
-                        dt.Columns.Add(new DataColumn("Sponsor Name", typeof(string)));
-                        dt.Columns.Add(new DataColumn("Amount", typeof(string)));
-
-                        foreach (var a in getSponsorship)
-                        {
-                            cellNum += 1;
-                            int amount = Decimal.ToInt32(a.Amount);
-                            dt.Rows.Add(cellNum, a.SponsorName, String.Format("USD{0:C} ({1} Dollar)", a.Amount, NumberToText(amount, true)));
-                        }
-
-                        dataGridView1.DataSource = dt;
-
+                        MessageBox.Show("Runner more than one!");
                     }
                     else
                     {
-                        MessageBox.Show("Runner Data is not Complete, Please Try Again!");
+                        if (getRunner != null)
+                        {
+                            var runner = getRunner.FirstOrDefault();
+                            String cost = String.Format("{0:C}", getRunner.Where(x => x.RunnerId.Equals(runner.Runner.RunnerId)).Select(x => x.Cost).FirstOrDefault());
+                            String sponsorTarget = String.Format("{0:C}", getRunner.Where(x => x.RunnerId.Equals(runner.RunnerId)).Select(x => x.SponsorshipTarget).FirstOrDefault());
+                            int costs = Decimal.ToInt32(getRunner.Where(x => x.RunnerId.Equals(runner.RunnerId)).Select(x => x.Cost).FirstOrDefault());
+                            int sponsors = Decimal.ToInt32(getRunner.Where(x => x.RunnerId.Equals(runner.RunnerId)).Select(x => x.SponsorshipTarget).FirstOrDefault());
+
+                            label27.Text = "USD" + sponsorTarget + " (" + NumberToText(sponsors, true) + " Dollar)";
+                            label23.Text = getRunner.Where(x => x.RunnerId.Equals(runner.RunnerId)).Select(x => x.RaceKitOption.RaceKitOption1).FirstOrDefault();
+                            label22.Text = "USD" + cost + " (" + NumberToText(costs, true) + " Dollar)";
+                            label21.Text = String.Format("{0:dd MMMM yyyy}", runner.Runner.DateOfBirth.Value);
+                            label20.Text = runner.Runner.Country.CountryName;
+                            label19.Text = getRunner.Where(x => x.RunnerId.Equals(runner.RunnerId)).Select(x => String.Format("{0:dd MMMM yyyy}", x.RegistrationDateTime)).FirstOrDefault();
+                            label18.Text = getRunner.Where(x => x.RunnerId.Equals(runner.RunnerId)).Select(x => x.RegistrationStatus.RegistrationStatus1).FirstOrDefault();
+                            label17.Text = "USD$0.00" + " (" + NumberToText(0, true) + " Dollar)";
+                            label16.Text = runner.Runner.User.FirstName;
+                            label15.Text = runner.Runner.User.LastName;
+                            label14.Text = runner.Runner.Email;
+                            label13.Text = runner.Runner.Gender;
+
+                            var getSponsorship = data.Sponsorships.Where(x => x.Registration.RunnerId.Equals(runner.RunnerId));
+
+                            int cellNum = 0;
+
+                            DataTable dt = new DataTable();
+                            dt.Columns.Add(new DataColumn("No", typeof(int)));
+                            dt.Columns.Add(new DataColumn("Sponsor Name", typeof(string)));
+                            dt.Columns.Add(new DataColumn("Amount", typeof(string)));
+
+                            foreach (var a in getSponsorship)
+                            {
+                                cellNum += 1;
+                                int amount = Decimal.ToInt32(a.Amount);
+                                dt.Rows.Add(cellNum, a.SponsorName, String.Format("USD{0:C} ({1} Dollar)", a.Amount, NumberToText(amount, true)));
+                            }
+
+                            dataGridView1.DataSource = dt;
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Runner Data is not Complete, Please Try Again!");
+                        }
                     }
                 }
                 catch (Exception ex)

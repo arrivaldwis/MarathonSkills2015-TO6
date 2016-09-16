@@ -19,11 +19,13 @@ Revisi
 - BMI Dibulatkan keatas, sesuai soal					(v)
 - No Charities kalau udah register event keluar charitiesnya		(v)
 - Combo Runner Country tidak keluar					(v)
-- Tahun My Race dan Previous beda					( )
+- Tahun My Race dan Previous beda					(v)
 - Additional Ka Komala (Employee Name dan PayAmount gk bisa dihilangkan)	(v)
 - Umur 10 harus presisi							(v)
 - Validasi di login jika ada runner baru yang didaftarkan admin		(v)
 - Series Tahun kalau kosong tampilkan kosong additional Indonesia	( )
+- Sponsorship Overview tampilkan semua charity termasuk yang kosong	(v)
+- Relasi StarRating Tabel
 
 NOTES TO REMIND
 
